@@ -6,7 +6,7 @@
 /*   By: egomez-a <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/21 14:22:36 by egomez-a          #+#    #+#             */
-/*   Updated: 2021/10/22 18:02:21 by egomez-a         ###   ########.fr       */
+/*   Updated: 2021/10/22 18:39:57 by egomez-a         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,8 +23,8 @@ typedef struct		s_pl
 {
 	int		argc;
 	char	**argv;
-	int		*stack_a;
-	int		*stack_b;
+	int		*stka;
+	int		*stkb;
 	int		*aux;
 	int		len_a;
 	int 	len_b;

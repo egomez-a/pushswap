@@ -6,7 +6,7 @@
 /*   By: egomez-a <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/21 14:41:34 by egomez-a          #+#    #+#             */
-/*   Updated: 2021/10/22 18:04:08 by egomez-a         ###   ########.fr       */
+/*   Updated: 2021/10/22 19:05:24 by egomez-a         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,73 +14,73 @@
 
 /* Switch_a intercambia el primer elemento con el segundo */
 
-void	sa(t_pl *stack)
+void	sa(t_pl *stk)
 {
-	int aux;
-	
-	if (stack->stack_a)
+	int	aux;
+
+	if (stk->stka)
 	{
-		if (stack->flag == 0)
+		if (stk->flag == 0)
 			write(1, "sa\n", 4);
-		aux = stack->stack_a[0];
-		stack->stack_a[0] = stack->stack_a[1];
-		stack->stack_a[1] = aux;
+		aux = stk->stka[0];
+		stk->stka[0] = stk->stka[1];
+		stk->stka[1] = aux;
 	}
 	return;
 }
 
-void	sb(t_pl *stack)
+void	sb(t_pl *stk)
 {
 	int aux;
 	
-	if (stack->stack_b)
+	if (stk->stkb)
 	{
-		if (stack->flag == 0)
+		if (stk->flag == 0)
 			write(1, "sb\n", 4);
-		aux = stack->stack_b[0];
-		stack->stack_b[0] = stack->stack_b[1];
-		stack->stack_b[1] = aux;
+		aux = stk->stkb[0];
+		stk->stkb[0] = stk->stkb[1];
+		stk->stkb[1] = aux;
 	}
 	return;
 }
 
-void	ss(t_pl *stack)
+void	ss(t_pl *stk)
 { 
-	stack->flag = 1;
-	sa(stack);
-	sb(stack);
+	stk->flag = 1;
+	sa(stk);
+	sb(stk);
 	write(1, "ss\n", 4);
-	stack->flag = 0;
+	stk->flag = 0;
 	return;
 }
 
 /* Push_a manda el primer elemento en pila_b al top de pila_a */
 
-void	pa(t_pl	*stack)
+void	pa(t_pl	*stk)
 {
 	int i;
 	int j;
 	
 	i = 0;
 	j = 1;
-	if (stack->stack_b)
+	if (stk->stkb)
 	{
-		stack->aux = ft_calloc(stack->len_a, sizeof(int));
-		stack->len_b = stack->len_b - 1;
-		stack->len_a = stack->len_a + 1;
-		stack->aux = stack->stack_a;
-		stack->stack_a[0] = stack->stack_b[0];
-		while (i < stack->len_b)
+		stk->aux = ft_calloc(stk->len_a, sizeof(int));
+		stk->len_b = stk->len_b - 1;
+		stk->len_a = stk->len_a + 1;
+		stk->aux = stk->stka;
+		stk->stka[0] = stk->stkb[0];
+		while (i < stk->len_b)
 		{
-			stack->stack_b[i] = stack->stack_b[i + 1];
+			stk->stkb[i] = stk->stkb[i + 1];
 			i++;
 		}
-		while (j < stack->len_a)
+		while (j < stk->len_a)
 		{
-			stack->stack_a[j] = stack->aux[j - 1];
+			stk->stka[j] = stk->aux[j - 1];
 			j++;
 		}
-		free(stack->aux);
+		free(stk->aux);
 		write(2, "pa\n", 4);
 	}
 	return;
@@ -88,31 +88,31 @@ void	pa(t_pl	*stack)
 
 /* Push_b manda el primer elemento en pila_a al top de pila_b */
 
-void	pb(t_pl	*stack)
+void	pb(t_pl	*stk)
 {
 	int i;
 	int j;
 	
 	i = 0;
 	j = 1;
-	if (stack->stack_a)
+	if (stk->stka)
 	{
-		stack->aux = ft_calloc(stack->len_b, sizeof(int));
-		stack->len_a = stack->len_a - 1;
-		stack->len_b = stack->len_b + 1;
-		stack->aux = stack->stack_b;
-		stack->stack_b[0] = stack->stack_a[0];
-		while (i < stack->len_a)
+		stk->aux = ft_calloc(stk->len_b, sizeof(int));
+		stk->len_a = stk->len_a - 1;
+		stk->len_b = stk->len_b + 1;
+		stk->aux = stk->stkb;
+		stk->stkb[0] = stk->stka[0];
+		while (i < stk->len_a)
 		{
-			stack->stack_a[i] = stack->stack_a[i + 1];
+			stk->stka[i] = stk->stka[i + 1];
 			i++;
 		}
-		while (j < stack->len_b)
+		while (j < stk->len_b)
 		{
-			stack->stack_b[j] = stack->aux[j - 1];
+			stk->stkb[j] = stk->aux[j - 1];
 			j++;
 		}	
-		free(stack->aux);
+		free(stk->aux);
 		write(2, "pb\n", 4);
 	}
 	return;
@@ -121,134 +121,182 @@ void	pb(t_pl	*stack)
 /* Rotate desplaza hacia arriba todos los elementos de la pila */
 /* y el primero pasa a ser el último */
 
-void	ra(t_pl *stack)
+void	ra(t_pl *stk)
 {
 	int	i;
 	int aux;
 
 	i = 0;
-	if (stack->stack_a)
+	if (stk->stka)
 	{
-		if (stack->flag == 0)
+		if (stk->flag == 0)
 			write(2, "ra\n", 4);
-		aux = stack->stack_a[0];
-		while (i < stack->len_a - 1)
+		aux = stk->stka[0];
+		while (i < stk->len_a - 1)
 		{
-			stack->stack_a[i] = stack->stack_a[i + 1];
+			stk->stka[i] = stk->stka[i + 1];
 			i++;
 		}
-		stack->stack_a[i] = aux;
+		stk->stka[i] = aux;
 	}
 	return;
 }
 
-void	rb(t_pl *stack)
+void	rb(t_pl *stk)
 {
 	int	i;
 	int aux;
 
 	i = 0;
-	if (stack->stack_b)
+	if (stk->stkb)
 	{
-		if (stack->flag == 0)
+		if (stk->flag == 0)
 			write(2, "rb\n", 4);
-		aux = stack->stack_b[0];
-		while (i < stack->len_b - 1)
+		aux = stk->stkb[0];
+		while (i < stk->len_b - 1)
 		{
-			stack->stack_b[i] = stack->stack_b[i + 1];
+			stk->stkb[i] = stk->stkb[i + 1];
 			i++;
 		}
-		stack->stack_b[i] = aux;
+		stk->stkb[i] = aux;
 	}
 	return;
 }
 
-void	rr(t_pl *stack)
+void	rr(t_pl *stk)
 { 
-	stack->flag = 1;
-	ra(stack);
-	rb(stack);
+	stk->flag = 1;
+	ra(stk);
+	rb(stk);
 	write(1, "rr\n", 4);
-	stack->flag = 0;
+	stk->flag = 0;
 	return;
 }
 
 /* Reverse Rotate desplaza hacia abajo todos los elementos de la pila */
 /* y el ultimo pasa a ser el primero */
 
-void	rra(t_pl *stack)
+void	rra(t_pl *stk)
 {
 	int	i;
 	int aux;
 
-	i = stack->len_a - 1;
-	if (stack->stack_a)
+	i = stk->len_a - 1;
+	if (stk->stka)
 	{
-		if (stack->flag == 0)
+		if (stk->flag == 0)
 			write(2, "rra\n", 5);
-		aux = stack->stack_a[stack->len_a - 1];
+		aux = stk->stka[stk->len_a - 1];
 		while (i > 0)
 		{
-			stack->stack_a[i] = stack->stack_a[i - 1];
+			stk->stka[i] = stk->stka[i - 1];
 			i--;
 		}
-		stack->stack_a[i] = aux;
+		stk->stka[i] = aux;
 	}
 	return;
 }
 
-void	rrb(t_pl *stack)
+void	rrb(t_pl *stk)
 {
 	int	i;
 	int aux;
 
-	i = stack->len_b - 1;
-	if (stack->stack_b)
+	i = stk->len_b - 1;
+	if (stk->stkb)
 	{
-		if (stack->flag == 0)
+		if (stk->flag == 0)
 			write(2, "rrb\n", 5);
-		aux = stack->stack_b[stack->len_b - 1];
+		aux = stk->stkb[stk->len_b - 1];
 		while (i > 0)
 		{
-			stack->stack_b[i] = stack->stack_b[i - 1];
+			stk->stkb[i] = stk->stkb[i - 1];
 			i--;
 		}
-		stack->stack_b[i] = aux;
+		stk->stkb[i] = aux;
 	}
 	return;
 }
 
-void	rrr(t_pl *stack)
+void	rrr(t_pl *stk)
 { 
-	stack->flag = 1;
-	rra(stack);
-	rrb(stack);
+	stk->flag = 1;
+	rra(stk);
+	rrb(stk);
 	write(1, "rrr\n", 5);
-	stack->flag = 0;
+	stk->flag = 0;
 	return;
 }
 
-int 	check_duplicates(t_pl *stack)
+void	orderlow(t_pl *stk)
+{
+	if ((stk->len_a == 1) || ((stk->len_a == 2) && (stk->stka[0] < stk->stka[1])))
+			return ;
+	else if ((stk->len_a == 2) && (stk->stka[0] > stk->stka[1]))
+	{
+		sa(stk);
+		return ;
+	}
+	else if (stk->stka[0] > stk->stka[1])
+	{
+		if (stk->stka[1] > stk->stka[2] && stk->stka[0] > stk->stka[2])
+		{
+			sa(stk);
+			rra(stk);
+			return ;
+		}
+		else if (stk->stka[1] < stk->stka[2] && stk->stka[0] > stk->stka[2])
+		{
+			ra(stk);
+			return ;
+		}
+		else if (stk->stka[1] < stk->stka[2] && stk->stka[0] < stk->stka[2])
+		{	
+			sa(stk);
+			return ;
+		}
+	}
+	else
+	{
+		if (stk->stka[1] > stk->stka[2] && stk->stka[0] < stk->stka[2])
+		{
+			sa(stk);
+			ra(stk);
+			return ;
+		}
+		else if (stk->stka[1] > stk->stka[2] && stk->stka[0] > stk->stka[2])
+		{
+			rra(stk);
+			return ;
+		}
+		else if (stk->stka[1] < stk->stka[2] && stk->stka[0] < stk->stka[2])
+		{	
+			return ;
+		}
+	}
+}
+
+int 	check_duplicates(t_pl *stk)
 {
 	int i;
 	int j;
 
-	if (!(stack) || stack->argc < 3) 
+	if (!(stk) || stk->argc < 2)
 	{
 		write(2, "Error\n", 6);
-		free(stack);
+		free(stk);
 		return (0);		
 	}
 	i = 0;
-	while (i < stack->len_a)
+	while (i < stk->len_a)
 	{
 		j = 1 + i;
-		while (j < stack->len_a)
+		while (j < stk->len_a)
 		{
-			if ((stack->stack_a[i] == stack->stack_a[j]) || (sizeof(stack->stack_a[i]) <= 2))
+			if (stk->stka[i] == stk->stka[j])
 			{
 				write(2, "Error\n", 6);
-				free(stack);
+				free(stk);
 				return (0);
 			}
 			j++;
@@ -258,33 +306,34 @@ int 	check_duplicates(t_pl *stack)
 	return (1);
 }
 
-t_pl	*init_structure(t_pl *stack, int argc, char **argv)
+t_pl	*init_structure(t_pl *stk, int argc, char **argv)
 {
 	int i;
 
 	i = 0;
-	stack = ft_calloc(sizeof(t_pl), 1);
-	stack->len_a = argc - 1;
-	stack->stack_a = ft_calloc(stack->len_a, sizeof(int));
-	stack->stack_b = ft_calloc(stack->len_a, sizeof(int));
+	stk = ft_calloc(sizeof(t_pl), 1);
+	stk->len_a = argc - 1;
+	stk->stka = ft_calloc(stk->len_a, sizeof(int));
+	stk->stkb = ft_calloc(stk->len_a, sizeof(int));
 
-	while (i < stack->len_a)
+	while (i < stk->len_a)
 	{
-		stack->stack_a[i] = ft_atoi(argv[i + 1]);
+		stk->stka[i] = ft_atoi(argv[i + 1]);
 		i++;
 	}
-	stack->argc = argc;
-	stack->argv = argv;
-	check_duplicates(stack);
-	return (stack);
+	stk->argc = argc;
+	stk->argv = argv;
+	check_duplicates(stk);
+	return (stk);
 }
 
 int	main(int argc, char **argv)
 {
-	t_pl	*stack;
+	t_pl	*stk;
 	
-	stack = NULL;
-	stack = init_structure(stack, argc, argv);
-	rra(stack);
+	stk = NULL;
+	stk = init_structure(stk, argc, argv);
+	if (stk->len_a < 4)
+		orderlow(stk);
 	return (0);
 }
