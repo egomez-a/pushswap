@@ -6,7 +6,7 @@
 /*   By: egomez-a <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/21 14:22:36 by egomez-a          #+#    #+#             */
-/*   Updated: 2021/10/22 19:07:26 by egomez-a         ###   ########.fr       */
+/*   Updated: 2021/10/23 19:45:27 by egomez-a         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,6 +46,8 @@ void	rra(t_pl	*stk);
 void	rrb(t_pl	*stk);
 void	rrr(t_pl	*stk);
 
-void	orderlow(t_pl	*stk)
+void	orderlow(t_pl	*stk);
+void    ordersix(t_pl	*stk);
+
 
 #endif

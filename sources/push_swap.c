@@ -6,7 +6,7 @@
 /*   By: egomez-a <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/21 14:41:34 by egomez-a          #+#    #+#             */
-/*   Updated: 2021/10/22 19:05:24 by egomez-a         ###   ########.fr       */
+/*   Updated: 2021/10/23 20:51:55 by egomez-a         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -95,6 +95,7 @@ void	pb(t_pl	*stk)
 	
 	i = 0;
 	j = 1;
+	
 	if (stk->stka)
 	{
 		stk->aux = ft_calloc(stk->len_b, sizeof(int));
@@ -228,10 +229,23 @@ void	rrr(t_pl *stk)
 	return;
 }
 
+void	ordersix(t_pl *stk)
+{
+	int i;
+	int j;
+
+	i = 0;
+	j = 0;
+	while (stk->len_a > 3)
+	{
+		pb(stk);
+	}
+}
+
 void	orderlow(t_pl *stk)
 {
 	if ((stk->len_a == 1) || ((stk->len_a == 2) && (stk->stka[0] < stk->stka[1])))
-			return ;
+		return ;
 	else if ((stk->len_a == 2) && (stk->stka[0] > stk->stka[1]))
 	{
 		sa(stk);
@@ -335,5 +349,7 @@ int	main(int argc, char **argv)
 	stk = init_structure(stk, argc, argv);
 	if (stk->len_a < 4)
 		orderlow(stk);
+	if (stk->len_a < 7)
+		ordersix(stk);
 	return (0);
 }

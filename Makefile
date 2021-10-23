@@ -6,7 +6,7 @@
 #    By: egomez-a <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/06/23 11:01:24 by egomez-a          #+#    #+#              #
-#    Updated: 2021/10/22 15:16:07 by egomez-a         ###   ########.fr        #
+#    Updated: 2021/10/23 19:53:27 by egomez-a         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -27,6 +27,12 @@ CC 			= 	gcc
 RM 			= 	rm -rf
 NORM		= 	/usr/bin/norminette
 
+NONE		=	'\033[0m'
+GREEN		=	'\033[32m'
+YELLOW		=	'\033[33m'
+GRAY		=	'\033[2;37m'
+CURSIVE		=	'\033[3m'
+
 all: $(NAME)
 
 $(OBJ_DIR)%.o : $(SRCS_DIR)%.c
@@ -34,10 +40,10 @@ $(OBJ_DIR)%.o : $(SRCS_DIR)%.c
 	$(CC) -c $(CFLAGS) $(DEBUGGING) $(LFLAGS) $< -o $@
 
 $(NAME) : $(OBJS)
-	@echo "==== Compilation of Libft Library==== "
+	@echo $(GRAY)"==== Compilation of Libft Library==== "$(NONE)
 	@make -C $(LIBFT_DIR)
 	$(CC) $(CFLAGS) $(LFLAGS) $(LIBFT_DIR)$(LIBFT) -o $(NAME) $(OBJS)
-	@echo "=============== DONE ================"
+	@echo $(GREEN)"=============== DONE ================"$(NONE)
 
 clean:
 		@echo "========== CLEAN =========="
