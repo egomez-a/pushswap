@@ -6,7 +6,7 @@
 /*   By: egomez-a <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/21 14:41:34 by egomez-a          #+#    #+#             */
-/*   Updated: 2021/10/23 20:51:55 by egomez-a         ###   ########.fr       */
+/*   Updated: 2021/10/24 13:23:22 by egomez-a         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,9 +60,11 @@ void	pa(t_pl	*stk)
 {
 	int i;
 	int j;
+	int k;
 	
 	i = 0;
 	j = 1;
+	k = 0;
 	if (stk->stkb)
 	{
 		stk->aux = ft_calloc(stk->len_a, sizeof(int));
@@ -70,6 +72,11 @@ void	pa(t_pl	*stk)
 		stk->len_a = stk->len_a + 1;
 		stk->aux = stk->stka;
 		stk->stka[0] = stk->stkb[0];
+		while (k < stk->len_a)
+		{
+			stk->aux[k] = stk->stka[k];
+			k++;
+		}
 		while (i < stk->len_b)
 		{
 			stk->stkb[i] = stk->stkb[i + 1];
@@ -92,9 +99,11 @@ void	pb(t_pl	*stk)
 {
 	int i;
 	int j;
+	int k;
 	
 	i = 0;
 	j = 1;
+	k = 0;
 	
 	if (stk->stka)
 	{
@@ -102,6 +111,12 @@ void	pb(t_pl	*stk)
 		stk->len_a = stk->len_a - 1;
 		stk->len_b = stk->len_b + 1;
 		stk->aux = stk->stkb;
+		stk->stkb[0] = stk->stka[0];
+		while (k < stk->len_b)
+		{
+			stk->aux[k] = stk->stkb[k];
+			k++;
+		}
 		stk->stkb[0] = stk->stka[0];
 		while (i < stk->len_a)
 		{
@@ -237,9 +252,27 @@ void	ordersix(t_pl *stk)
 	i = 0;
 	j = 0;
 	while (stk->len_a > 3)
-	{
 		pb(stk);
+	orderlow(stk);
+	while(stk->len_b < 1)
+	{
+		pa(stk);
+		j++;
 	}
+	while (j == 0)
+	{
+		ra(stk);
+		j--;
+	}
+	while (stk->len_a > 3)
+		pb(stk);
+	orderlow(stk);
+	while(stk->len_b < 1)
+	{
+		pa(stk);
+		j++;
+	}
+	return;
 }
 
 void	orderlow(t_pl *stk)
