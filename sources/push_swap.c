@@ -6,7 +6,7 @@
 /*   By: egomez-a <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/21 14:41:34 by egomez-a          #+#    #+#             */
-/*   Updated: 2021/10/25 22:28:51 by egomez-a         ###   ########.fr       */
+/*   Updated: 2021/10/25 22:47:51 by egomez-a         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,7 +73,6 @@ void	transfer(t_pl *stk)
 			i++;
 		}
 	}
-	pb(stk);
 	return ;
 }
 
@@ -83,34 +82,36 @@ void	orderfive(t_pl *stk)
 	while (stk->len_a > 3)
 		pb(stk);
 	orderlow(stk);
-	if ((stk->len_b == 2) && (stk->stkb[0] < stk->stkb[1]))
+	if ((stk->len_b == 2) && (stk->stkb[0] > stk->stkb[1]))
 		sb(stk);
-	if ((stk->stkb[0] > stk->stka[0]) && (stk->stkb[0] < stk->stka[1]))
+	if ((stk->stkb[0] < stk->stka[0]) && (stk->stkb[0] < stk->stka[1]) &&(stk->stkb[0] < stk->stka[2]))
 	{
+		pa(stk);
+		pa(stk);
+		ra(stk);
+	}
+	else if ((stk->stkb[0] > stk->stka[0]) && (stk->stkb[0] < stk->stka[1]) &&(stk->stkb[0] < stk->stka[2]))
+	{
+		pa(stk);
 		sa(stk);
 		pa(stk);
-		pa(stk);
+		ra(stk);
+	}
+	else if ((stk->stkb[0] > stk->stka[0]) && (stk->stkb[0] > stk->stka[1]) &&(stk->stkb[0] < stk->stka[2]))
+	{
 		rra(stk);
-	}
-	if ((stk->stkb[0] > stk->stka[0]) && (stk->stkb[0] > stk->stka[1]) && (stk->stkb[0] > stk->stkb[2]))
-	{
-		pa(stk);
 		pa(stk);
 		ra(stk);
+		ra(stk);
+		pa(stk);
 		ra(stk);
 	}
-	if ((stk->stkb[0] > stk->stka[0]) && (stk->stkb[0] > stk->stkb[1]) && (stk->stkb[0] < stk->stkb[2]))
+	else
 	{
 		pa(stk);
+		ra(stk);
 		pa(stk);
 		ra(stk);
-		ra(stk);
-		ra(stk);
-	}
-	if (stk->stkb[0] < stk->stka[0])
-	{
-		pa(stk);
-		pa(stk);
 	}
 	return;
 }
@@ -228,8 +229,8 @@ void	printstacks(t_pl *stk)
 			i++;
 		}
 		printf("\n");
-		printf("Top number is --> %d \n", top_number(stk));
-		printf("Index of top number --> %d \n", stk->top_index);
+//		printf("Top number is --> %d \n", top_number(stk));
+//		printf("Index of top number --> %d \n", stk->top_index);
 		i = 0;
 		printf("Stack B --> ");
 		while (i < stk->len_b)
@@ -256,11 +257,11 @@ int	main(int argc, char **argv)
 		printf("Stack in order\n");
 		return (0);
 	}
-//	if ((stk) && (stk->len_a < 4))
-//		orderlow(stk);
-//	if ((stk) && ((stk->len_a < 6) && (stk->len_a > 3)))
-//		orderfive(stk);
-//	printstacks(stk);
+	if ((stk) && (stk->len_a < 4))
+		orderlow(stk);
+	if ((stk) && ((stk->len_a < 6) && (stk->len_a > 3)))
+		orderfive(stk);
+	printstacks(stk);
 	free(stk);
 	return (0);
 }
