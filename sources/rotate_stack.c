@@ -6,7 +6,7 @@
 /*   By: egomez-a <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/25 10:19:25 by egomez-a          #+#    #+#             */
-/*   Updated: 2021/10/25 10:31:25 by egomez-a         ###   ########.fr       */
+/*   Updated: 2021/10/25 13:12:32 by egomez-a         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,10 @@ void	ra(t_pl *stk)
 	if (stk->stka)
 	{
 		if (stk->flag == 0)
+		{
 			write(2, "ra\n", 4);
+			stk->mov++;
+		}
 		aux = stk->stka[0];
 		while (i < stk->len_a - 1)
 		{
@@ -45,7 +48,10 @@ void	rb(t_pl *stk)
 	if (stk->stkb)
 	{
 		if (stk->flag == 0)
+		{
 			write(2, "rb\n", 4);
+			stk->mov++;
+		}
 		aux = stk->stkb[0];
 		while (i < stk->len_b - 1)
 		{
@@ -63,6 +69,7 @@ void	rr(t_pl *stk)
 	ra(stk);
 	rb(stk);
 	write(1, "rr\n", 4);
+	stk->mov++;
 	stk->flag = 0;
 	return ;
 }

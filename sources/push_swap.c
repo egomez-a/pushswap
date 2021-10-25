@@ -6,7 +6,7 @@
 /*   By: egomez-a <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/21 14:41:34 by egomez-a          #+#    #+#             */
-/*   Updated: 2021/10/25 12:40:18 by egomez-a         ###   ########.fr       */
+/*   Updated: 2021/10/25 13:14:26 by egomez-a         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -149,15 +149,24 @@ void	printstacks(t_pl *stk)
 	int i;
 	
 	i = 0;
-	printf("Stack A    Stack B\n");
-	while (i < stk->len_max)
+	printf("Stack A  --> ");
+	while (i < stk->len_a)
 	{
-		printf("   %d          %d\n",stk->stka[i],stk->stkb[i]);
+		printf("%d ",stk->stka[i]);
 		i++;
 	}
+	printf("\n");
+	i = 0;
+	printf("Stack B --> ");
+	while (i < stk->len_b)
+	{
+		printf("%d ",stk->stkb[i]);
+		i++;
+	}
+	printf("\n");
+	printf("Movements: %d\n", stk->mov);
 	return ;
 }
-
 
 int	main(int argc, char **argv)
 {
@@ -166,17 +175,10 @@ int	main(int argc, char **argv)
 	stk = NULL;
 	stk = init_structure(stk, argc, argv);
 	printstacks(stk);
-//	if (stk->len_a < 4)
-//		orderlow(stk);
+	if (stk->len_a < 4)
+		orderlow(stk);
 //	if ((stk->len_a < 7) && (stk->len_a > 3))
 //		ordersix(stk);
-	pb(stk);
-	printstacks(stk);
-	pb(stk);
-	printstacks(stk);
-	pb(stk);
-	printstacks(stk);
-	pb(stk);
 	printstacks(stk);
 	free(stk);
 	return (0);

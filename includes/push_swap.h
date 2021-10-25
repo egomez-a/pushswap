@@ -6,7 +6,7 @@
 /*   By: egomez-a <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/21 14:22:36 by egomez-a          #+#    #+#             */
-/*   Updated: 2021/10/25 12:45:42 by egomez-a         ###   ########.fr       */
+/*   Updated: 2021/10/25 13:10:35 by egomez-a         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,6 +30,7 @@ typedef struct		s_pl
 	int 	len_b;
 	int 	len_max;
 	int		flag;
+	int		mov;
 }					t_pl;
 
 int		main(int argc, char **argv);
@@ -46,7 +47,8 @@ void	rr(t_pl		*stk);
 void	rra(t_pl	*stk);
 void	rrb(t_pl	*stk);
 void	rrr(t_pl	*stk);
-void	push_aux(t_pl	*stk);
+void	push_aux_a(t_pl	*stk);
+void	push_aux_b(t_pl	*stk);
 
 void	orderlow(t_pl	*stk);
 void    ordersix(t_pl	*stk);
