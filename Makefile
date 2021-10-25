@@ -6,7 +6,7 @@
 #    By: egomez-a <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/06/23 11:01:24 by egomez-a          #+#    #+#              #
-#    Updated: 2021/10/23 19:53:27 by egomez-a         ###   ########.fr        #
+#    Updated: 2021/10/25 10:32:09 by egomez-a         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -15,7 +15,13 @@ LIBFT		= 	libft.a
 LIBFT_DIR	=	libft/
 SRCS_DIR	=	sources/
 OBJ_DIR		= 	obj/
-SRCS 		=	push_swap.c
+
+SRCS 		=	push_swap.c \
+				push_stack.c \
+				switch_stack.c \
+				rotate_stack.c \
+				reverserotate_stack.c
+
 NOW			=	$(shell date +"%d-%m-%y %H:%M")
 
 OBJS 		= 	$(addprefix $(OBJ_DIR), $(SRCS:.c=.o))
