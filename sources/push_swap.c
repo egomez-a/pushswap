@@ -6,7 +6,7 @@
 /*   By: egomez-a <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/21 14:41:34 by egomez-a          #+#    #+#             */
-/*   Updated: 2021/10/25 20:40:30 by egomez-a         ###   ########.fr       */
+/*   Updated: 2021/10/25 22:19:07 by egomez-a         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,7 @@ int top_number(t_pl *stk)
 		{
 			stk->top = stk->stka[i];
 			stk->top_index = i;
+		}
 		i++;
 	}
 	return (stk->top);
@@ -211,6 +212,7 @@ void	printstacks(t_pl *stk)
 		}
 		printf("\n");
 		printf("Top number is --> %d \n", top_number(stk));
+		printf("Index of top number --> %d \n", stk->top_index);
 		i = 0;
 		printf("Stack B --> ");
 		while (i < stk->len_b)
