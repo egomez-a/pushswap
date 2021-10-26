@@ -6,7 +6,7 @@
 #    By: egomez-a <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/06/23 11:01:24 by egomez-a          #+#    #+#              #
-#    Updated: 2021/10/26 13:07:17 by egomez-a         ###   ########.fr        #
+#    Updated: 2021/10/26 20:20:55 by egomez-a         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -23,6 +23,7 @@ SRCS 		=	push_swap.c \
 				reverserotate_stack.c \
 				printstacks.c \
 				midpoint.c \
+				orderbig.c \
 
 NOW			=	$(shell date +"%d-%m-%y %H:%M")
 

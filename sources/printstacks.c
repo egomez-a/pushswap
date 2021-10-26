@@ -6,7 +6,7 @@
 /*   By: egomez-a <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/26 13:03:03 by egomez-a          #+#    #+#             */
-/*   Updated: 2021/10/26 17:53:25 by egomez-a         ###   ########.fr       */
+/*   Updated: 2021/10/26 20:11:14 by egomez-a         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,28 +26,28 @@ void	printstacks(t_pl *stk)
 			i++;
 		}
 		printf("\n");
-		top_number(stk);
-		printf("Top number is --> %d \n", stk->position.top);
-		printf("Index of top number --> %d \n", stk->position.top_index);
-		insertion_sort(stk);
-		printf("Mid point is %d\n", stk->position.mid);
-		printf("Bottom point is %d\n", stk->position.bottom);
-		printf("Stack A ordered --> \n");
-		i = 0; 
-		while (i < stk->len_a)
-		{
-			printf("%d ",stk->position.array[i]);
-			i++;
-		}
-		printf("\n");
-		i = 0;
-		printf("Stack B --> ");
-		while (i < stk->len_b)
-		{
-			printf("%d ",stk->stkb[i]);
-			i++;
-		}
-		printf("\n");
+//		bottom_number(stk);
+//		top_number(stk);
+//		printf("Top number is --> %d \n", stk->position.top);
+//		printf("Index of top number --> %d \n", stk->position.top_index);
+//		printf("Bottom number is %d\n", stk->position.bottom);
+//		printf("Bottom index is %d\n", stk->position.bottom_index);
+//		printf("Stack A ordered --> \n");
+//		i = 0; 
+//		while (i < stk->len_a)
+//		{
+//			printf("%d ",stk->position.array[i]);
+//			i++;
+//		}
+//		printf("\n");
+//		i = 0;
+//		printf("Stack B --> ");
+//		while (i < stk->len_b)
+//		{
+//			printf("%d ",stk->stkb[i]);
+//			i++;
+//		}
+//		printf("\n");
 		if (stk->mov > 0)
 			printf("Movements: %d\n", stk->mov);
 	}

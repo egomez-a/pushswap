@@ -6,7 +6,7 @@
 /*   By: egomez-a <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/21 14:22:36 by egomez-a          #+#    #+#             */
-/*   Updated: 2021/10/26 17:54:01 by egomez-a         ###   ########.fr       */
+/*   Updated: 2021/10/26 20:21:30 by egomez-a         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,6 +69,8 @@ void	orderlow(t_pl	*stk);
 void	orderfive(t_pl	*stk);
 void 	top_number(t_pl *stk);
 void	transfer(t_pl *stk);
-void	insertion_sort(t_pl *stk); 
+void	insertion_sort(t_pl *stk);
+void	bottom_number(t_pl *stk);
+void	orderbig(t_pl *stk);
 
 #endif

@@ -6,29 +6,11 @@
 /*   By: egomez-a <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/21 14:41:34 by egomez-a          #+#    #+#             */
-/*   Updated: 2021/10/26 17:53:36 by egomez-a         ###   ########.fr       */
+/*   Updated: 2021/10/26 20:22:49 by egomez-a         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/push_swap.h"
-
-void top_number(t_pl *stk)
-{
-	int	i;
-
-	i = 1;
-	stk->position.top = stk->stka[0];
-	while (i < stk->len_a)
-	{
-		if (stk->stka[i] > stk->position.top)
-		{
-			stk->position.top = stk->stka[i];
-			stk->position.top_index = i;
-		}
-		i++;
-	}
-	return ;
-}
 
 int		check_order(t_pl *stk)
 {
@@ -213,7 +195,7 @@ int	main(int argc, char **argv)
 	
 	stk = NULL;
 	stk = init_structure(stk, argc, argv);
-	printstacks(stk);
+//	printstacks(stk);
 	if (check_order(stk) > 0)
 	{
 		printf("Stack in order\n");
@@ -223,6 +205,8 @@ int	main(int argc, char **argv)
 		orderlow(stk);
 	if ((stk) && ((stk->len_a < 6) && (stk->len_a > 3)))
 		orderfive(stk);
+	if ((stk) && (stk->len_a >= 6))
+		orderbig(stk);
 	printstacks(stk);
 	free(stk);
 	return (0);

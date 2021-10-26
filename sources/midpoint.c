@@ -6,7 +6,7 @@
 /*   By: egomez-a <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/26 12:57:46 by egomez-a          #+#    #+#             */
-/*   Updated: 2021/10/26 17:55:24 by egomez-a         ###   ########.fr       */
+/*   Updated: 2021/10/26 20:09:18 by egomez-a         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,43 @@ void insertion_sort(t_pl *stk)
     }
 	stk->position.mid_index = (stk->len_a/2);
 	stk->position.mid = stk->position.array[stk->position.mid_index];
-	stk->position.bottom_index = 0;
-	stk->position.bottom = stk->position.array[stk->position.bottom_index];
+	return ;
+}
+
+void	bottom_number(t_pl *stk)
+{
+	int i;
+
+	i = 1;
+	stk->position.bottom = stk->stka[0];
+	while (i < stk->len_a)
+	{
+		if (stk->position.bottom > stk->stka[i])
+		{
+			stk->position.bottom = stk->stka[i];
+			stk->position.bottom_index = i;
+			i++;
+		}
+		else 
+			i++;	
+	}
+	return ;
+}
+
+void top_number(t_pl *stk)
+{
+	int	i;
+
+	i = 1;
+	stk->position.top = stk->stka[0];
+	while (i < stk->len_a)
+	{
+		if (stk->stka[i] > stk->position.top)
+		{
+			stk->position.top = stk->stka[i];
+			stk->position.top_index = i;
+		}
+		i++;
+	}
 	return ;
 }
