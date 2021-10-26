@@ -6,7 +6,7 @@
 /*   By: egomez-a <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/21 14:41:34 by egomez-a          #+#    #+#             */
-/*   Updated: 2021/10/26 13:09:51 by egomez-a         ###   ########.fr       */
+/*   Updated: 2021/10/26 17:46:49 by egomez-a         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,13 +17,13 @@ void top_number(t_pl *stk)
 	int	i;
 
 	i = 1;
-	stk->top = stk->stka[0];
+	stk->position.top = stk->stka[0];
 	while (i < stk->len_a)
 	{
-		if (stk->stka[i] > stk->top)
+		if (stk->stka[i] > stk->position.top)
 		{
-			stk->top = stk->stka[i];
-			stk->top_index = i;
+			stk->position.top = stk->stka[i];
+			stk->position.top_index = i;
 		}
 		i++;
 	}
@@ -55,14 +55,14 @@ int		check_order(t_pl *stk)
 void	transfer(t_pl *stk)
 {
 	top_number(stk);
-	if (((stk->top_index) + 1) <= ((stk->len_a)/2) && (stk->stka[0] != stk->top))
+	if (((stk->position.top_index) + 1) <= ((stk->len_a)/2) && (stk->stka[0] != stk->position.top))
 	{
-		while (stk->stka[0] != stk->top)
+		while (stk->stka[0] != stk->position.top)
 			ra(stk);
 	}
-	if (((stk->top_index) + 1) > ((stk->len_a)/2) && (stk->stka[0] != stk->top))
+	if (((stk->position.top_index) + 1) > ((stk->len_a)/2) && (stk->stka[0] != stk->position.top))
 	{
-		while (stk->stka[0] != stk->top)
+		while (stk->stka[0] != stk->position.top)
 			rra(stk);
 	}
 	return ;
@@ -213,7 +213,7 @@ int	main(int argc, char **argv)
 	
 	stk = NULL;
 	stk = init_structure(stk, argc, argv);
-	printstacks(stk);
+//	printstacks(stk);
 	if (check_order(stk) > 0)
 	{
 		printf("Stack in order\n");

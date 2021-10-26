@@ -6,7 +6,7 @@
 /*   By: egomez-a <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/21 14:22:36 by egomez-a          #+#    #+#             */
-/*   Updated: 2021/10/26 13:13:39 by egomez-a         ###   ########.fr       */
+/*   Updated: 2021/10/26 17:31:58 by egomez-a         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,18 @@
 
 /* Definicion de estructura de datos con las pilas */
 
+typedef	struct 		s_pos
+{
+	int		*array;
+	int		top;
+	int		top_index;
+	int		mid;
+	int		mid_index;
+//	int		bottom;
+//	int		bottom_index;
+}
+					t_pos;
+
 typedef struct		s_pl
 {
 	int		argc;
@@ -26,15 +38,13 @@ typedef struct		s_pl
 	int		*stka;
 	int		*stkb;
 	int		*aux;
-	int		*array;
 	int		len_a;
 	int		len_b;
 	int		len_max;
 	int		flag;
 	int		flagrotate;
 	int		mov;
-	int		top;
-	int		top_index;
+	t_pos	position;
 }					t_pl;
 
 int		main(int argc, char **argv);
@@ -58,9 +68,8 @@ void	printstacks(t_pl *stk);
 void	orderlow(t_pl	*stk);
 void	orderfive(t_pl	*stk);
 void 	top_number(t_pl *stk);
-int		check_order(t_pl *stk);
 void	transfer(t_pl *stk);
-int 	mid_insertionsort(t_pl *stk); 
+void	mid_insertionsort(t_pl *stk); 
 
 
 
