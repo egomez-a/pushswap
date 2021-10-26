@@ -6,7 +6,7 @@
 /*   By: egomez-a <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/21 14:41:34 by egomez-a          #+#    #+#             */
-/*   Updated: 2021/10/26 17:46:49 by egomez-a         ###   ########.fr       */
+/*   Updated: 2021/10/26 17:53:36 by egomez-a         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -213,7 +213,7 @@ int	main(int argc, char **argv)
 	
 	stk = NULL;
 	stk = init_structure(stk, argc, argv);
-//	printstacks(stk);
+	printstacks(stk);
 	if (check_order(stk) > 0)
 	{
 		printf("Stack in order\n");

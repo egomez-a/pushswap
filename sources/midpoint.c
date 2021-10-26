@@ -6,13 +6,13 @@
 /*   By: egomez-a <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/26 12:57:46 by egomez-a          #+#    #+#             */
-/*   Updated: 2021/10/26 17:32:29 by egomez-a         ###   ########.fr       */
+/*   Updated: 2021/10/26 17:55:24 by egomez-a         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/push_swap.h"
 
-void mid_insertionsort(t_pl *stk) 
+void insertion_sort(t_pl *stk) 
 { 
 	int i;
 	int j;
@@ -35,5 +35,7 @@ void mid_insertionsort(t_pl *stk)
     }
 	stk->position.mid_index = (stk->len_a/2);
 	stk->position.mid = stk->position.array[stk->position.mid_index];
+	stk->position.bottom_index = 0;
+	stk->position.bottom = stk->position.array[stk->position.bottom_index];
 	return ;
 }

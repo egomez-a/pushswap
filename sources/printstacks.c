@@ -6,7 +6,7 @@
 /*   By: egomez-a <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/26 13:03:03 by egomez-a          #+#    #+#             */
-/*   Updated: 2021/10/26 17:45:22 by egomez-a         ###   ########.fr       */
+/*   Updated: 2021/10/26 17:53:25 by egomez-a         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,8 +29,9 @@ void	printstacks(t_pl *stk)
 		top_number(stk);
 		printf("Top number is --> %d \n", stk->position.top);
 		printf("Index of top number --> %d \n", stk->position.top_index);
-		mid_insertionsort(stk);
+		insertion_sort(stk);
 		printf("Mid point is %d\n", stk->position.mid);
+		printf("Bottom point is %d\n", stk->position.bottom);
 		printf("Stack A ordered --> \n");
 		i = 0; 
 		while (i < stk->len_a)

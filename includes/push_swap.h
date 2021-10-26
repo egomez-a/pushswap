@@ -6,7 +6,7 @@
 /*   By: egomez-a <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/21 14:22:36 by egomez-a          #+#    #+#             */
-/*   Updated: 2021/10/26 17:31:58 by egomez-a         ###   ########.fr       */
+/*   Updated: 2021/10/26 17:54:01 by egomez-a         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,8 +26,8 @@ typedef	struct 		s_pos
 	int		top_index;
 	int		mid;
 	int		mid_index;
-//	int		bottom;
-//	int		bottom_index;
+	int		bottom;
+	int		bottom_index;
 }
 					t_pos;
 
@@ -69,9 +69,6 @@ void	orderlow(t_pl	*stk);
 void	orderfive(t_pl	*stk);
 void 	top_number(t_pl *stk);
 void	transfer(t_pl *stk);
-void	mid_insertionsort(t_pl *stk); 
-
-
-
+void	insertion_sort(t_pl *stk); 
 
 #endif
