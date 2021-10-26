@@ -6,13 +6,13 @@
 /*   By: egomez-a <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/21 14:41:34 by egomez-a          #+#    #+#             */
-/*   Updated: 2021/10/25 22:47:51 by egomez-a         ###   ########.fr       */
+/*   Updated: 2021/10/26 10:03:50 by egomez-a         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/push_swap.h"
 
-int top_number(t_pl *stk)
+void top_number(t_pl *stk)
 {
 	int	i;
 
@@ -27,7 +27,7 @@ int top_number(t_pl *stk)
 		}
 		i++;
 	}
-	return (stk->top);
+	return ;
 }
 
 int		check_order(t_pl *stk)
@@ -54,24 +54,16 @@ int		check_order(t_pl *stk)
 
 void	transfer(t_pl *stk)
 {
-	int i;
-
-	i = 0;
+	top_number(stk);
 	if (((stk->top_index) + 1) <= ((stk->len_a)/2) && (stk->stka[0] != stk->top))
 	{
-		while (i < (stk->len_a)/2)
-		{
+		while (stk->stka[0] != stk->top)
 			ra(stk);
-			i++;
-		}
 	}
 	if (((stk->top_index) + 1) > ((stk->len_a)/2) && (stk->stka[0] != stk->top))
 	{
-		while (i < (stk->len_a)/2)
-		{
+		while (stk->stka[0] != stk->top)
 			rra(stk);
-			i++;
-		}
 	}
 	return ;
 }
