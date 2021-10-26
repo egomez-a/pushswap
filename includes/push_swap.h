@@ -6,7 +6,7 @@
 /*   By: egomez-a <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/21 14:22:36 by egomez-a          #+#    #+#             */
-/*   Updated: 2021/10/26 11:08:14 by egomez-a         ###   ########.fr       */
+/*   Updated: 2021/10/26 13:13:39 by egomez-a         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,6 +26,7 @@ typedef struct		s_pl
 	int		*stka;
 	int		*stkb;
 	int		*aux;
+	int		*array;
 	int		len_a;
 	int		len_b;
 	int		len_max;
@@ -53,8 +54,15 @@ void	rrb(t_pl	*stk);
 void	rrr(t_pl	*stk);
 void	push_aux_a(t_pl	*stk);
 void	push_aux_b(t_pl	*stk);
-
+void	printstacks(t_pl *stk);
 void	orderlow(t_pl	*stk);
-void	ordersix(t_pl	*stk);
+void	orderfive(t_pl	*stk);
+void 	top_number(t_pl *stk);
+int		check_order(t_pl *stk);
+void	transfer(t_pl *stk);
+int 	mid_insertionsort(t_pl *stk); 
+
+
+
 
 #endif

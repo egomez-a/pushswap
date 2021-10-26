@@ -6,7 +6,7 @@
 /*   By: egomez-a <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/21 14:41:34 by egomez-a          #+#    #+#             */
-/*   Updated: 2021/10/26 10:03:50 by egomez-a         ###   ########.fr       */
+/*   Updated: 2021/10/26 13:09:51 by egomez-a         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -205,36 +205,6 @@ t_pl	*init_structure(t_pl *stk, int argc, char **argv)
 	stk->argv = argv;
 	check_duplicates(stk);
 	return (stk);
-}
-
-void	printstacks(t_pl *stk)
-{
-	int i;
-	
-	i = 0;
-	if (stk)
-	{
-		printf("Stack A  --> ");
-		while (i < stk->len_a)
-		{
-			printf("%d ",stk->stka[i]);
-			i++;
-		}
-		printf("\n");
-//		printf("Top number is --> %d \n", top_number(stk));
-//		printf("Index of top number --> %d \n", stk->top_index);
-		i = 0;
-		printf("Stack B --> ");
-		while (i < stk->len_b)
-		{
-			printf("%d ",stk->stkb[i]);
-			i++;
-		}
-		printf("\n");
-		if (stk->mov > 0)
-			printf("Movements: %d\n", stk->mov);
-	}
-	return ;
 }
 
 int	main(int argc, char **argv)
