@@ -6,7 +6,7 @@
 /*   By: egomez-a <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/22 16:04:19 by egomez-a          #+#    #+#             */
-/*   Updated: 2021/02/03 18:56:24 by egomez-a         ###   ########.fr       */
+/*   Updated: 2021/04/28 11:20:16 by egomez-a         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,12 +14,12 @@
 
 void	ft_bzero(void *s, size_t n)
 {
-	size_t i;
+	size_t	i;
 
 	i = 0;
 	while (i < n)
 	{
-		((unsigned char*)s)[i] = 0;
+		((unsigned char *)s)[i] = 0;
 		i++;
 	}
 }

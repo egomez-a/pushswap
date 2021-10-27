@@ -6,7 +6,7 @@
 /*   By: egomez-a <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/22 11:11:44 by egomez-a          #+#    #+#             */
-/*   Updated: 2021/02/09 15:13:41 by egomez-a         ###   ########.fr       */
+/*   Updated: 2021/04/28 11:11:11 by egomez-a         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 size_t	ft_strlen(const char *str)
 {
-	size_t len;
+	int	len;
 
 	len = 0;
 	while (str[len] != '\0')

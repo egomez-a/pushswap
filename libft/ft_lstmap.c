@@ -6,7 +6,7 @@
 /*   By: egomez-a <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/04 14:05:06 by egomez-a          #+#    #+#             */
-/*   Updated: 2021/02/05 12:17:17 by egomez-a         ###   ########.fr       */
+/*   Updated: 2021/04/28 11:23:22 by egomez-a         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,8 @@ t_list	*ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *))
 	item_lst = 0;
 	while (lst)
 	{
-		if (!(new_list = ft_lstnew((*f)(lst->content))))
+		new_list = ft_lstnew((*f)(lst->content));
+		if (!(new_list))
 		{
 			ft_lstclear(&item_lst, del);
 			return (0);

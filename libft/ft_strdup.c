@@ -6,7 +6,7 @@
 /*   By: egomez-a <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/28 10:55:25 by egomez-a          #+#    #+#             */
-/*   Updated: 2021/02/03 19:22:59 by egomez-a         ###   ########.fr       */
+/*   Updated: 2021/04/28 11:21:18 by egomez-a         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@
 ** NULL is returned and errno is set to ENOMEM.
 */
 
-char		*ft_strdup(const char *s1)
+char	*ft_strdup(const char *s1)
 {
 	int		len;
 	int		i;
@@ -28,7 +28,8 @@ char		*ft_strdup(const char *s1)
 	len = 0;
 	while (s1[len])
 		len++;
-	if (!(ptr = (char *)malloc(sizeof(char) * (len + 1))))
+	ptr = (char *)malloc(sizeof(char) * (len + 1));
+	if (!(ptr))
 		return (NULL);
 	i = 0;
 	while (i < len)

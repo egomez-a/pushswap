@@ -6,16 +6,16 @@
 /*   By: egomez-a <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/22 11:41:48 by egomez-a          #+#    #+#             */
-/*   Updated: 2021/02/03 18:21:21 by egomez-a         ###   ########.fr       */
+/*   Updated: 2021/04/28 11:20:36 by egomez-a         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int		ft_atoi(char *str)
+int	ft_atoi(const char *str)
 {
-	int signo;
-	int n;
+	int	signo;
+	int	n;
 
 	n = 0;
 	signo = 1;

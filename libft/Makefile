@@ -6,7 +6,7 @@
 #    By: egomez-a <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/01/28 12:02:43 by egomez-a          #+#    #+#              #
-#    Updated: 2021/02/05 12:30:42 by egomez-a         ###   ########.fr        #
+#    Updated: 2021/05/14 09:11:01 by egomez-a         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -43,21 +43,18 @@ SRC = ft_atoi.c \
 	  ft_strtrim.c \
 	  ft_substr.c \
 	  ft_tolower.c \
-	  ft_toupper.c 
+	  ft_toupper.c \
+	  ft_lstnew.c \
+	  ft_lstadd_front.c \
+	  ft_lstsize.c \
+	  ft_lstlast.c \
+	  ft_lstadd_back.c \
+	  ft_lstdelone.c \
+	  ft_lstclear.c \
+	  ft_lstiter.c \
+	  ft_lstmap.c
 	  	 
 OBJ = $(SRC:.c=.o)
-
-BON	= 	ft_lstnew.c \
-		ft_lstadd_front.c \
-		ft_lstsize.c \
-		ft_lstlast.c \
-		ft_lstadd_back.c \
-		ft_lstdelone.c \
-		ft_lstclear.c \
-		ft_lstiter.c \
-		ft_lstmap.c
-
-BON_OBJ	= $(BON:.c=.o)
 
 .PHONY: all, clean, fclean, re
 
@@ -77,11 +74,8 @@ $(NAME): $(OBJ)
 
 all: $(NAME)
 
-bonus:	$(OBJ) $(BON_OBJ)
-	@ar rc $(NAME) $(OBJ) $(BON_OBJ)
-
 clean:
-	@$(RM) $(OBJ) $(BON_OBJ)
+	@$(RM) $(OBJ) 
 
 fclean: clean
 	@$(RM) $(NAME)

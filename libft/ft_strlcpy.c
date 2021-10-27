@@ -6,7 +6,7 @@
 /*   By: egomez-a <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/22 16:06:23 by egomez-a          #+#    #+#             */
-/*   Updated: 2021/02/05 12:51:32 by egomez-a         ###   ########.fr       */
+/*   Updated: 2021/04/28 11:11:42 by egomez-a         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,8 +22,8 @@
 
 unsigned int	ft_strlcpy(char *dest, char *src, unsigned int size)
 {
-	unsigned int j;
-	unsigned int lensrc;
+	unsigned int	j;
+	unsigned int	lensrc;
 
 	if (!src || !dest)
 		return (0);

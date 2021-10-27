@@ -6,7 +6,7 @@
 /*   By: egomez-a <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/29 18:44:09 by egomez-a          #+#    #+#             */
-/*   Updated: 2021/02/05 20:27:20 by egomez-a         ###   ########.fr       */
+/*   Updated: 2021/04/28 11:26:54 by egomez-a         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 
 static int	ft_nblen(long nb)
 {
-	int len;
+	int	len;
 
 	len = 0;
 	if (nb < 0)
@@ -31,18 +31,8 @@ static int	ft_nblen(long nb)
 	return (len);
 }
 
-char		*ft_itoa(int n)
+void	ft_itoacheck(int n, char *str, int len)
 {
-	char	*str;
-	int		len;
-
-	if (n == -2147483648)
-		return (ft_strdup("-2147483648"));
-	len = ft_nblen(n);
-	if (n == 0)
-		return (ft_strdup("0"));
-	if (!(str = (char *)malloc(sizeof(char) * (len + 1))))
-		return (NULL);
 	str[len--] = '\0';
 	if (n == 0)
 		str[0] = '0';
@@ -57,5 +47,21 @@ char		*ft_itoa(int n)
 		n = n / 10;
 		len--;
 	}
+}
+
+char	*ft_itoa(int n)
+{
+	char	*str;
+	int		len;
+
+	if (n == -2147483648)
+		return (ft_strdup("-2147483648"));
+	len = ft_nblen(n);
+	if (n == 0)
+		return (ft_strdup("0"));
+	str = (char *)malloc(sizeof(char) * (len + 1));
+	if (!(str))
+		return (NULL);
+	ft_itoacheck(n, str, len);
 	return (str);
 }

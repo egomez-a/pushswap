@@ -6,7 +6,7 @@
 #    By: egomez-a <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/06/23 11:01:24 by egomez-a          #+#    #+#              #
-#    Updated: 2021/10/27 13:10:42 by egomez-a         ###   ########.fr        #
+#    Updated: 2021/10/27 18:21:31 by egomez-a         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -42,6 +42,20 @@ GREEN		=	'\033[32m'
 YELLOW		=	'\033[33m'
 GRAY		=	'\033[2;37m'
 CURSIVE		=	'\033[3m'
+RED			=	'\033[0;31m'
+ORANGE		=	'\033[0;33m'
+BLUE		=	'\033[0;34m'
+PURPLE		=	'\033[0;35m'
+CYAN		=	'\033[0;36m'
+LIGHTGRAY	=	'\033[0;37m'
+DARKGRAY	=	'\033[1;30m'
+LIGHTRED	=	'\033[1;31m'
+LIGHTGREEN	=	'\033[1;32m'
+YELLOW		=	'\033[1;33m'
+LIGHTBLUE	=	'\033[1;34m'
+LIGHTPURPLE	=	'\033[1;35m'
+LIGHTCYAN	=	'\033[1;36m'
+WHITE		=	'\033[1;37m'
 
 all: $(NAME)
 

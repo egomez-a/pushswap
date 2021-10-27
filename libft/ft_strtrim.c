@@ -6,7 +6,7 @@
 /*   By: egomez-a <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/29 12:26:17 by egomez-a          #+#    #+#             */
-/*   Updated: 2021/02/05 19:38:02 by egomez-a         ###   ########.fr       */
+/*   Updated: 2021/04/28 10:34:17 by egomez-a         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,9 +21,9 @@
 ** que es donde esta el carácter buscado.
 */
 
-size_t		ft_begtrim(char const *s1, char const *set)
+size_t	ft_begtrim(char const *s1, char const *set)
 {
-	int beg;
+	int	beg;
 
 	beg = 0;
 	while (s1[beg] && ft_strchr(set, s1[beg]))
@@ -31,7 +31,7 @@ size_t		ft_begtrim(char const *s1, char const *set)
 	return (beg);
 }
 
-char		*ft_strtrim(char const *s1, char const *set)
+char	*ft_strtrim(char const *s1, char const *set)
 {
 	size_t	beg;
 	size_t	end;
@@ -44,13 +44,13 @@ char		*ft_strtrim(char const *s1, char const *set)
 	end = ft_strlen(s1);
 	if (beg == end)
 	{
-		str = malloc(sizeof(char*));
+		str = malloc(sizeof(char *));
 		str[0] = '\0';
 		return (str);
 	}
 	while (s1[end - 1] != '\0' && ft_strchr(set, s1[end - 1]))
 		end--;
-	str = (char*)malloc(sizeof(char) * (end - beg + 1));
+	str = (char *)malloc(sizeof(char) * (end - beg + 1));
 	if (!(str))
 		return (NULL);
 	i = 0;

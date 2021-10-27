@@ -6,7 +6,7 @@
 /*   By: egomez-a <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/23 12:32:05 by egomez-a          #+#    #+#             */
-/*   Updated: 2021/02/03 20:29:00 by egomez-a         ###   ########.fr       */
+/*   Updated: 2021/04/28 11:39:33 by egomez-a         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,9 +26,9 @@
 
 unsigned int	ft_strlcat(char *dest, char *src, unsigned int size)
 {
-	unsigned int lensrc;
-	unsigned int lendst;
-	unsigned int i;
+	unsigned int	lensrc;
+	unsigned int	lendst;
+	unsigned int	i;
 
 	lensrc = 0;
 	lendst = 0;

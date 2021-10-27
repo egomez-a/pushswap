@@ -6,13 +6,13 @@
 /*   By: egomez-a <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/29 12:26:45 by egomez-a          #+#    #+#             */
-/*   Updated: 2021/02/09 14:12:36 by egomez-a         ###   ########.fr       */
+/*   Updated: 2021/04/28 11:41:25 by egomez-a         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-static int		ft_countwords(char const *s, char c)
+static int	ft_countwords(char const *s, char c)
 {
 	unsigned int	i;
 	int				cntr;
@@ -33,7 +33,7 @@ static int		ft_countwords(char const *s, char c)
 	return (cntr);
 }
 
-static char		**ft_malloc(char const *s, char c)
+static char	**ft_malloc(char const *s, char c)
 {
 	int			len;
 	char		**tab;
@@ -43,9 +43,11 @@ static char		**ft_malloc(char const *s, char c)
 	if (tab == 0)
 		return (0);
 	return (tab);
+	if (!(tab))
+		return (0);
 }
 
-static int		ft_wordcountnext(char const *s, char c, int i)
+static int	ft_wordcountnext(char const *s, char c, int i)
 {
 	int	cntr;
 
@@ -60,9 +62,9 @@ static int		ft_wordcountnext(char const *s, char c, int i)
 	return (cntr);
 }
 
-static char		**ft_free(char **tab, int i)
+static char	**ft_free(char **tab, int i)
 {
-	int j;
+	int	j;
 
 	j = 0;
 	while (j < i && tab[j] != 0)
@@ -74,7 +76,7 @@ static char		**ft_free(char **tab, int i)
 	return (0);
 }
 
-char			**ft_split(char const *s, char c)
+char	**ft_split(char const *s, char c)
 {
 	int		i;
 	int		start;
@@ -85,12 +87,12 @@ char			**ft_split(char const *s, char c)
 	start = 0;
 	if (s == 0)
 		return (0);
-	if (!(tab = ft_malloc(s, c)))
-		return (0);
+	tab = ft_malloc(s, c);
 	while (++i < ft_countwords(s, c))
 	{
 		j = 0;
-		if (!(tab[i] = malloc(ft_wordcountnext(s, c, start) + 1)))
+		tab[i] = malloc(ft_wordcountnext(s, c, start) + 1);
+		if (!(tab[i]))
 			return (ft_free(tab, i));
 		while (s[start] != '\0' && s[start] == c)
 			start++;
