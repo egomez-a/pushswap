@@ -6,7 +6,7 @@
 /*   By: egomez-a <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/26 13:03:03 by egomez-a          #+#    #+#             */
-/*   Updated: 2021/10/26 20:11:14 by egomez-a         ###   ########.fr       */
+/*   Updated: 2021/10/27 13:18:04 by egomez-a         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,13 +41,13 @@ void	printstacks(t_pl *stk)
 //		}
 //		printf("\n");
 //		i = 0;
-//		printf("Stack B --> ");
-//		while (i < stk->len_b)
-//		{
-//			printf("%d ",stk->stkb[i]);
-//			i++;
-//		}
-//		printf("\n");
+		printf("Stack B --> ");
+		while (i < stk->len_b)
+		{
+			printf("%d ",stk->stkb[i]);
+			i++;
+		}
+		printf("\n");
 		if (stk->mov > 0)
 			printf("Movements: %d\n", stk->mov);
 	}

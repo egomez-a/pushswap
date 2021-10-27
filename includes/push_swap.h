@@ -6,7 +6,7 @@
 /*   By: egomez-a <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/21 14:22:36 by egomez-a          #+#    #+#             */
-/*   Updated: 2021/10/26 20:21:30 by egomez-a         ###   ########.fr       */
+/*   Updated: 2021/10/27 13:15:38 by egomez-a         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,7 +50,7 @@ typedef struct		s_pl
 int		main(int argc, char **argv);
 t_pl	*init_structure(t_pl *stk, int argc, char **argv);
 int		check_duplicates(t_pl *stk);
-int		check_order(t_pl *stk);
+void		check_order(t_pl *stk);
 void	sa(t_pl		*stk);
 void	sb(t_pl 	*stk);
 void	ss(t_pl 	*stk);
