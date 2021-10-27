@@ -6,7 +6,7 @@
 /*   By: egomez-a <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/26 12:57:46 by egomez-a          #+#    #+#             */
-/*   Updated: 2021/10/27 13:15:14 by egomez-a         ###   ########.fr       */
+/*   Updated: 2021/10/27 17:35:41 by egomez-a         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,8 +42,9 @@ void	bottom_number(t_pl *stk)
 {
 	int i;
 
-	i = 1;
+	i = 0;
 	stk->position.bottom = stk->stka[0];
+	stk->position.bottom_index = 0;
 	while (i < stk->len_a)
 	{
 		if (stk->position.bottom > stk->stka[i])
