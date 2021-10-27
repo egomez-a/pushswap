@@ -6,7 +6,7 @@
 /*   By: egomez-a <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/26 20:15:29 by egomez-a          #+#    #+#             */
-/*   Updated: 2021/10/27 13:46:28 by egomez-a         ###   ########.fr       */
+/*   Updated: 2021/10/27 17:28:16 by egomez-a         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,7 +46,6 @@ void	orderbig(t_pl *stk)
 	{
 		pushlowtotop(stk);
 		pb (stk);
-		
 	}
 	orderlow(stk);
 	i = 0;
