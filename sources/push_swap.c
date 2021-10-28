@@ -6,7 +6,7 @@
 /*   By: egomez-a <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/21 14:41:34 by egomez-a          #+#    #+#             */
-/*   Updated: 2021/10/27 13:27:30 by egomez-a         ###   ########.fr       */
+/*   Updated: 2021/10/28 12:07:06 by egomez-a         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,15 +14,15 @@
 
 void	transfer(t_pl *stk)
 {
-	top_number(stk);
-	if (((stk->position.top_index) + 1) <= ((stk->len_a)/2) && (stk->stka[0] != stk->position.top))
+	top_number_a(stk);
+	if (((stk->posa.top_index) + 1) <= ((stk->len_a)/2) && (stk->stka[0] != stk->posa.top))
 	{
-		while (stk->stka[0] != stk->position.top)
+		while (stk->stka[0] != stk->posa.top)
 			ra(stk);
 	}
-	if (((stk->position.top_index) + 1) > ((stk->len_a)/2) && (stk->stka[0] != stk->position.top))
+	if (((stk->posa.top_index) + 1) > ((stk->len_a)/2) && (stk->stka[0] != stk->posa.top))
 	{
-		while (stk->stka[0] != stk->position.top)
+		while (stk->stka[0] != stk->posa.top)
 			rra(stk);
 	}
 	return ;
@@ -151,7 +151,7 @@ int	main(int argc, char **argv)
 //	if ((stk) && ((stk->len_a < 6) && (stk->len_a > 3)))
 //		orderfive(stk);
 //	if ((stk) && (stk->len_a >= 6))
-	orderbig(stk);
+	orderstackbychunks(stk);
 	printstacks(stk);
 	free(stk);
 	return (0);

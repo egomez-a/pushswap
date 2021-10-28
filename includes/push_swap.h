@@ -6,7 +6,7 @@
 /*   By: egomez-a <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/21 14:22:36 by egomez-a          #+#    #+#             */
-/*   Updated: 2021/10/27 13:15:38 by egomez-a         ###   ########.fr       */
+/*   Updated: 2021/10/28 12:09:40 by egomez-a         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,21 +15,35 @@
 # include <stdio.h>
 # include <stdlib.h>
 # include <unistd.h>
+# include <math.h>
 # include "../libft/libft.h"
 
 /* Definicion de estructura de datos con las pilas */
 
-typedef	struct 		s_pos
+typedef	struct 		s_pos_a
 {
 	int		*array;
 	int		top;
 	int		top_index;
-	int		mid;
-	int		mid_index;
 	int		bottom;
 	int		bottom_index;
-}
-					t_pos;
+}					t_pos_a;
+
+typedef	struct 		s_pos_b
+{
+	int		*array;
+	int		top;
+	int		top_index;
+	int		bottom;
+	int		bottom_index;
+}					t_pos_b;
+
+typedef	struct		s_chunk
+{
+	int		chunksize;
+	int 	*chunk;
+	int 	n_chunk;
+}					t_chunk;
 
 typedef struct		s_pl
 {
@@ -44,13 +58,15 @@ typedef struct		s_pl
 	int		flag;
 	int		flagrotate;
 	int		mov;
-	t_pos	position;
+	t_pos_a	posa;
+	t_pos_b	posb;
+	t_chunk	ck;
 }					t_pl;
 
 int		main(int argc, char **argv);
 t_pl	*init_structure(t_pl *stk, int argc, char **argv);
 int		check_duplicates(t_pl *stk);
-void		check_order(t_pl *stk);
+void	check_order(t_pl *stk);
 void	sa(t_pl		*stk);
 void	sb(t_pl 	*stk);
 void	ss(t_pl 	*stk);
@@ -67,10 +83,16 @@ void	push_aux_b(t_pl	*stk);
 void	printstacks(t_pl *stk);
 void	orderlow(t_pl	*stk);
 void	orderfive(t_pl	*stk);
-void 	top_number(t_pl *stk);
+void 	top_number_a(t_pl *stk);
+void 	top_number_b(t_pl *stk);
 void	transfer(t_pl *stk);
 void	insertion_sort(t_pl *stk);
-void	bottom_number(t_pl *stk);
-void	orderbig(t_pl *stk);
+void	bottom_number_a(t_pl *stk);
+void	bottom_number_b(t_pl *stk);
+void	orderstack(t_pl *stk);
+void	chunk_limits(t_pl *stk);
+void	orderstackbychunks(t_pl *stk);
+void	pushlowtotop_a (t_pl *stk);
+void	pushlowtotop_b (t_pl *stk);
 
 #endif
