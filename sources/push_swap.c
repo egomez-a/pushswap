@@ -6,7 +6,7 @@
 /*   By: egomez-a <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/21 14:41:34 by egomez-a          #+#    #+#             */
-/*   Updated: 2021/10/28 12:43:18 by egomez-a         ###   ########.fr       */
+/*   Updated: 2021/10/28 17:17:31 by egomez-a         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -142,7 +142,6 @@ int	main(int argc, char **argv)
 	
 	stk = NULL;
 	stk = init_structure(stk, argc, argv);
-	check_order(stk);
 	printstacks(stk);
 	if (check_duplicates(stk) == 0)
 		return (0);

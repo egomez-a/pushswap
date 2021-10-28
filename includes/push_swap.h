@@ -6,7 +6,7 @@
 /*   By: egomez-a <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/21 14:22:36 by egomez-a          #+#    #+#             */
-/*   Updated: 2021/10/28 12:38:51 by egomez-a         ###   ########.fr       */
+/*   Updated: 2021/10/29 01:30:07 by egomez-a         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,6 +27,7 @@ typedef	struct 		s_pos_a
 	int		max_index;
 	int		min;
 	int		min_index;
+	int		index;
 }					t_pos_a;
 
 typedef	struct 		s_pos_b
@@ -36,6 +37,7 @@ typedef	struct 		s_pos_b
 	int		max_index;
 	int		min;
 	int		min_index;
+	int 	index;
 }					t_pos_b;
 
 typedef	struct		s_chunk
@@ -58,6 +60,7 @@ typedef struct		s_pl
 	int		flag;
 	int		flagrotate;
 	int		mov;
+	int		flagorder;
 	t_pos_a	posa;
 	t_pos_b	posb;
 	t_chunk	ck;

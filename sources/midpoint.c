@@ -6,7 +6,7 @@
 /*   By: egomez-a <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/26 12:57:46 by egomez-a          #+#    #+#             */
-/*   Updated: 2021/10/28 13:10:47 by egomez-a         ###   ########.fr       */
+/*   Updated: 2021/10/29 01:46:52 by egomez-a         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,7 +45,7 @@ void insertion_sort(t_pl *stk)
 	return ;
 }
 
-/* Buscar el número más bajo */
+/* Buscar el número más bajo del stack a */
 
 void	min_number_a(t_pl *stk)
 {
@@ -68,7 +68,6 @@ void	min_number_a(t_pl *stk)
 	return ;
 }
 
-
 /* Buscar el número más bajo del stack b */
 
 void	min_number_b(t_pl *stk)
@@ -78,11 +77,11 @@ void	min_number_b(t_pl *stk)
 	i = 0;
 	stk->posb.min = stk->stkb[0];
 	stk->posb.min_index = 0;
-	while (i < stk->len_a)
+	while (i < stk->len_b)
 	{
-		if (stk->posb.min > stk->stka[i])
+		if (stk->posb.min > stk->stkb[i])
 		{
-			stk->posb.min = stk->stka[i];
+			stk->posb.min = stk->stkb[i];
 			stk->posb.min_index = i;
 			i++;
 		}
@@ -152,7 +151,7 @@ void	chunk_limits(t_pl	*stk)
 	stk->ck.n_chunk = stk->len_max / stk->ck.chunksize;
 	stk->ck.chunk = ft_calloc(stk->ck.n_chunk, sizeof(int));
 	i = 0;
-	while (i < stk->ck.n_chunk)
+	while (i <= stk->ck.n_chunk)
 	{
 		index = i * stk->len_max / stk->ck.n_chunk;
 		stk->ck.chunk[i] = stk->posa.array[index];
