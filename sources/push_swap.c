@@ -6,7 +6,7 @@
 /*   By: egomez-a <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/21 14:41:34 by egomez-a          #+#    #+#             */
-/*   Updated: 2021/10/28 12:07:06 by egomez-a         ###   ########.fr       */
+/*   Updated: 2021/10/28 12:43:18 by egomez-a         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,15 +14,15 @@
 
 void	transfer(t_pl *stk)
 {
-	top_number_a(stk);
-	if (((stk->posa.top_index) + 1) <= ((stk->len_a)/2) && (stk->stka[0] != stk->posa.top))
+	max_number_a(stk);
+	if (((stk->posa.max_index) + 1) <= ((stk->len_a)/2) && (stk->stka[0] != stk->posa.max))
 	{
-		while (stk->stka[0] != stk->posa.top)
+		while (stk->stka[0] != stk->posa.max)
 			ra(stk);
 	}
-	if (((stk->posa.top_index) + 1) > ((stk->len_a)/2) && (stk->stka[0] != stk->posa.top))
+	if (((stk->posa.max_index) + 1) > ((stk->len_a)/2) && (stk->stka[0] != stk->posa.max))
 	{
-		while (stk->stka[0] != stk->posa.top)
+		while (stk->stka[0] != stk->posa.max)
 			rra(stk);
 	}
 	return ;

@@ -6,7 +6,7 @@
 /*   By: egomez-a <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/26 12:57:46 by egomez-a          #+#    #+#             */
-/*   Updated: 2021/10/28 12:08:02 by egomez-a         ###   ########.fr       */
+/*   Updated: 2021/10/28 12:37:27 by egomez-a         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,19 +47,19 @@ void insertion_sort(t_pl *stk)
 
 /* Buscar el número más bajo */
 
-void	bottom_number_a(t_pl *stk)
+void	min_number_a(t_pl *stk)
 {
 	int i;
 
 	i = 0;
-	stk->posa.bottom = stk->stka[0];
-	stk->posa.bottom_index = 0;
+	stk->posa.min = stk->stka[0];
+	stk->posa.min_index = 0;
 	while (i < stk->len_a)
 	{
-		if (stk->posa.bottom > stk->stka[i])
+		if (stk->posa.min > stk->stka[i])
 		{
-			stk->posa.bottom = stk->stka[i];
-			stk->posa.bottom_index = i;
+			stk->posa.min = stk->stka[i];
+			stk->posa.min_index = i;
 			i++;
 		}
 		else 
@@ -71,19 +71,19 @@ void	bottom_number_a(t_pl *stk)
 
 /* Buscar el número más bajo del stack b */
 
-void	bottom_number_b(t_pl *stk)
+void	min_number_b(t_pl *stk)
 {
 	int i;
 
 	i = 0;
-	stk->posb.bottom = stk->stkb[0];
-	stk->posb.bottom_index = 0;
+	stk->posb.min = stk->stkb[0];
+	stk->posb.min_index = 0;
 	while (i < stk->len_a)
 	{
-		if (stk->posb.bottom > stk->stka[i])
+		if (stk->posb.min > stk->stka[i])
 		{
-			stk->posb.bottom = stk->stka[i];
-			stk->posb.bottom_index = i;
+			stk->posb.min = stk->stka[i];
+			stk->posb.min_index = i;
 			i++;
 		}
 		else 
@@ -93,18 +93,18 @@ void	bottom_number_b(t_pl *stk)
 }
 /* Buscar el número más alto del stack a*/
 
-void top_number_a(t_pl *stk)
+void max_number_a(t_pl *stk)
 {
 	int	i;
 
 	i = 1;
-	stk->posa.top = stk->stka[0];
+	stk->posa.max = stk->stka[0];
 	while (i < stk->len_a)
 	{
-		if (stk->stka[i] > stk->posa.top)
+		if (stk->stka[i] > stk->posa.max)
 		{
-			stk->posa.top = stk->stka[i];
-			stk->posa.top_index = i;
+			stk->posa.max = stk->stka[i];
+			stk->posa.max_index = i;
 		}
 		i++;
 	}
@@ -113,18 +113,18 @@ void top_number_a(t_pl *stk)
 
 /* Buscar el número más alto del stack b*/
 
-void top_number_b(t_pl *stk)
+void max_number_b(t_pl *stk)
 {
 	int	i;
 
 	i = 1;
-	stk->posb.top = stk->stkb[0];
+	stk->posb.max = stk->stkb[0];
 	while (i < stk->len_b)
 	{
-		if (stk->stkb[i] > stk->posb.top)
+		if (stk->stkb[i] > stk->posb.max)
 		{
-			stk->posb.top = stk->stkb[i];
-			stk->posb.top_index = i;
+			stk->posb.max = stk->stkb[i];
+			stk->posb.max_index = i;
 		}
 		i++;
 	}

@@ -6,7 +6,7 @@
 /*   By: egomez-a <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/26 20:15:29 by egomez-a          #+#    #+#             */
-/*   Updated: 2021/10/28 12:10:38 by egomez-a         ###   ########.fr       */
+/*   Updated: 2021/10/28 12:44:04 by egomez-a         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,15 +14,15 @@
 
 /* Busca el menor valor y lo sube a la primera posicion */
 
-void	pushlowtotop_a (t_pl *stk)
+void	pushmintotop_a (t_pl *stk)
 {
 	int i;
 	
-	bottom_number_a(stk);
-	if (stk->posa.bottom_index < (stk->len_a / 2))
+	min_number_a(stk);
+	if (stk->posa.min_index < (stk->len_a / 2))
 	{
 		i = 0;
-		while(i < stk->posa.bottom_index)
+		while(i < stk->posa.min_index)
 		{
 			ra(stk);
 			i++;
@@ -30,10 +30,60 @@ void	pushlowtotop_a (t_pl *stk)
 	}
 	else 
 	{
-		i = stk->posa.bottom_index;
+		i = stk->posa.min_index;
 		while(i < stk->len_a)
 		{
 			rra(stk);
+			i++;
+		}
+	}
+}
+
+void	pushmintotop_b (t_pl *stk)
+{
+	int i;
+	
+	min_number_b(stk);
+	if (stk->posb.min_index < (stk->len_b / 2))
+	{
+		i = 0;
+		while(i < stk->posb.min_index)
+		{
+			rb(stk);
+			i++;
+		}
+	}
+	else 
+	{
+		i = stk->posb.min_index;
+		while(i < stk->len_a)
+		{
+			rrb(stk);
+			i++;
+		}
+	}
+}
+
+void	pushmaxtotop_b(t_pl *stk)
+{
+		int i;
+	
+	max_number_b(stk);
+	if (stk->posb.max_index < (stk->len_b / 2))
+	{
+		i = 0;
+		while(i < stk->posb.max_index)
+		{
+			rb(stk);
+			i++;
+		}
+	}
+	else 
+	{
+		i = stk->posb.max_index;
+		while(i < stk->len_b)
+		{
+			rrb(stk);
 			i++;
 		}
 	}
@@ -49,7 +99,7 @@ void	orderstack(t_pl *stk)
 	insertion_sort(stk);
 	while (stk->len_a > 3)
 	{
-		pushlowtotop_a(stk);
+		pushmintotop_a(stk);
 		pb (stk);
 	}
 	orderlow(stk);
@@ -63,7 +113,9 @@ void	orderstack(t_pl *stk)
 
 void order_stackb(t_pl *stk)
 {
-	
+	pushmaxtotop_b(stk);
+	printstacks(stk);
+	return ;
 }
  
 
@@ -84,7 +136,7 @@ void	orderstackbychunks(t_pl *stk)
 		{
 			if (stk->stka[i] < stk->ck.chunk[j])
 			{
-				pushlowtotop_a(stk);
+				pushmintotop_a(stk);
 				pb (stk);
 				i++;
 			}
