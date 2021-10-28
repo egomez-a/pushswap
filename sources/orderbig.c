@@ -6,7 +6,7 @@
 /*   By: egomez-a <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/26 20:15:29 by egomez-a          #+#    #+#             */
-/*   Updated: 2021/10/28 12:44:04 by egomez-a         ###   ########.fr       */
+/*   Updated: 2021/10/28 13:23:27 by egomez-a         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -114,7 +114,10 @@ void	orderstack(t_pl *stk)
 void order_stackb(t_pl *stk)
 {
 	pushmaxtotop_b(stk);
-	printstacks(stk);
+	pa(stk);
+	pushmintotop_b(stk);
+	pa(stk);
+	ra(stk);
 	return ;
 }
  
@@ -130,24 +133,22 @@ void	orderstackbychunks(t_pl *stk)
 	chunk_limits(stk);
 	i = 0;
 	j = 1;
-	while (j < stk->ck.n_chunk)
+	while (j <= stk->ck.n_chunk)
 	{
-		while (stk->len_a > 3)
+		while ((stk->len_a > 0) && (i < stk->len_max))
 		{
 			if (stk->stka[i] < stk->ck.chunk[j])
 			{
 				pushmintotop_a(stk);
 				pb (stk);
 				i++;
-			}
-			i++;
+			}			
+			else 
+				i++;
 		}
-		order_stackb(stk);
-	
+		while (stk->len_b > 0)
+			order_stackb(stk);
+		j++;
 	}
-	orderlow(stk);
-	i = 0;
-	while (stk->len_b > 0)
-		pa(stk);
 	return;
 }

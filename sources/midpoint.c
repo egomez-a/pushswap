@@ -6,7 +6,7 @@
 /*   By: egomez-a <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/26 12:57:46 by egomez-a          #+#    #+#             */
-/*   Updated: 2021/10/28 12:37:27 by egomez-a         ###   ########.fr       */
+/*   Updated: 2021/10/28 13:10:47 by egomez-a         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -150,7 +150,7 @@ void	chunk_limits(t_pl	*stk)
 	insertion_sort(stk);
 	stk->ck.chunksize = 5;
 	stk->ck.n_chunk = stk->len_max / stk->ck.chunksize;
-	stk->ck.chunk =  ft_calloc(stk->ck.n_chunk, sizeof(int));
+	stk->ck.chunk = ft_calloc(stk->ck.n_chunk, sizeof(int));
 	i = 0;
 	while (i < stk->ck.n_chunk)
 	{
