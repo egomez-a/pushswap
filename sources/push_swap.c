@@ -6,7 +6,7 @@
 /*   By: egomez-a <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/21 14:41:34 by egomez-a          #+#    #+#             */
-/*   Updated: 2021/10/29 14:06:27 by egomez-a         ###   ########.fr       */
+/*   Updated: 2021/10/29 14:08:25 by egomez-a         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -150,8 +150,7 @@ int	main(int argc, char **argv)
 //		orderfive(stk);
 //	if ((stk) && (stk->len_a >= 6))
 	orderstackbychunks(stk);
-	if (stk->mov > 0)
-		printf("Movements: %d\n", stk->mov);
+	printstacks(stk);
 	free(stk);
 	return (0);
 }
