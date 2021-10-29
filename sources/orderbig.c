@@ -6,7 +6,7 @@
 /*   By: egomez-a <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/26 20:15:29 by egomez-a          #+#    #+#             */
-/*   Updated: 2021/10/29 02:02:26 by egomez-a         ###   ########.fr       */
+/*   Updated: 2021/10/29 11:34:29 by egomez-a         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -150,6 +150,21 @@ void order_stackb(t_pl *stk)
 	return ;
 }
  
+void	orderlastchunk(t_pl *stk)
+{
+	int i;
+
+	i = 0;
+	if ((stk->stka[i] <= stk->ck.chunk[stk->ck.n_chunk]) && (stk->stka[i] >= stk->ck.chunk[(stk->ck.n_chunk - 1)]))
+	{
+		stk->posa.index = i;
+		pushnumbertotop_a(stk);
+		pb (stk);
+		i = 0;
+	}			
+	else 
+		i++;
+}
 
 /* Ordenación por trozos */
 
@@ -166,15 +181,20 @@ void	orderstackbychunks(t_pl *stk)
 		i = 0;
 		while (stk->len_b < stk->ck.chunksize)
 		{
-			if (stk->stka[i] < stk->ck.chunk[j] && stk->stka[i] > stk->ck.chunk[(j - 1)])
-			{
-				stk->posa.index = i;
-				pushnumbertotop_a(stk);
-				pb (stk);
-				i = 0;
-			}			
+			if (j == stk->ck.n_chunk)
+				orderlastchunk(stk);
 			else 
-				i++;
+			{
+				if ((stk->stka[i] < stk->ck.chunk[j]) && (stk->stka[i] >= stk->ck.chunk[(j - 1)]))
+				{
+					stk->posa.index = i;
+					pushnumbertotop_a(stk);
+					pb (stk);
+					i = 0;
+				}			
+				else 
+					i++;
+			}
 		}
 		while (stk->len_b > 0)
 			order_stackb(stk);
