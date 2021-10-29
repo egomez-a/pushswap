@@ -6,7 +6,7 @@
 /*   By: egomez-a <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/21 14:41:34 by egomez-a          #+#    #+#             */
-/*   Updated: 2021/10/28 17:17:31 by egomez-a         ###   ########.fr       */
+/*   Updated: 2021/10/29 14:06:27 by egomez-a         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -142,7 +142,6 @@ int	main(int argc, char **argv)
 	
 	stk = NULL;
 	stk = init_structure(stk, argc, argv);
-	printstacks(stk);
 	if (check_duplicates(stk) == 0)
 		return (0);
 //	if ((stk) && (stk->len_a < 4))
@@ -151,7 +150,8 @@ int	main(int argc, char **argv)
 //		orderfive(stk);
 //	if ((stk) && (stk->len_a >= 6))
 	orderstackbychunks(stk);
-	printstacks(stk);
+	if (stk->mov > 0)
+		printf("Movements: %d\n", stk->mov);
 	free(stk);
 	return (0);
 }

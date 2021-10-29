@@ -6,7 +6,7 @@
 /*   By: egomez-a <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/26 20:15:29 by egomez-a          #+#    #+#             */
-/*   Updated: 2021/10/29 11:34:29 by egomez-a         ###   ########.fr       */
+/*   Updated: 2021/10/29 12:54:46 by egomez-a         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,6 +69,8 @@ void	pushmaxtotop_b(t_pl *stk)
 		int i;
 	
 	max_number_b(stk);
+	if ((stk->posb.max_index) == 0)
+		return ;
 	if (stk->posb.max_index < (stk->len_b / 2))
 	{
 		i = 0;
@@ -205,6 +207,7 @@ void	orderstackbychunks(t_pl *stk)
 			i++;
 		}
 		j++;
+		stk->flagorder = 0;
 	}
 	return;
 }

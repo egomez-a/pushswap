@@ -6,7 +6,7 @@
 /*   By: egomez-a <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/26 12:57:46 by egomez-a          #+#    #+#             */
-/*   Updated: 2021/10/29 11:13:02 by egomez-a         ###   ########.fr       */
+/*   Updated: 2021/10/29 13:23:02 by egomez-a         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -98,6 +98,7 @@ void max_number_a(t_pl *stk)
 
 	i = 1;
 	stk->posa.max = stk->stka[0];
+	stk->posa.max_index = 0;
 	while (i < stk->len_a)
 	{
 		if (stk->stka[i] > stk->posa.max)
@@ -118,6 +119,7 @@ void max_number_b(t_pl *stk)
 
 	i = 1;
 	stk->posb.max = stk->stkb[0];
+	stk->posb.max_index = 0;
 	while (i < stk->len_b)
 	{
 		if (stk->stkb[i] > stk->posb.max)
