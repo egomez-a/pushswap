@@ -6,7 +6,7 @@
 /*   By: egomez-a <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/26 20:15:29 by egomez-a          #+#    #+#             */
-/*   Updated: 2021/10/29 01:42:44 by egomez-a         ###   ########.fr       */
+/*   Updated: 2021/10/29 02:02:26 by egomez-a         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -166,7 +166,7 @@ void	orderstackbychunks(t_pl *stk)
 		i = 0;
 		while (stk->len_b < stk->ck.chunksize)
 		{
-			if (stk->stka[i] < stk->ck.chunk[j])
+			if (stk->stka[i] < stk->ck.chunk[j] && stk->stka[i] > stk->ck.chunk[(j - 1)])
 			{
 				stk->posa.index = i;
 				pushnumbertotop_a(stk);

@@ -6,7 +6,7 @@
 /*   By: egomez-a <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/26 12:57:46 by egomez-a          #+#    #+#             */
-/*   Updated: 2021/10/29 01:46:52 by egomez-a         ###   ########.fr       */
+/*   Updated: 2021/10/29 11:13:02 by egomez-a         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -144,18 +144,25 @@ void	chunks_size(t_pl	*stk)
 void	chunk_limits(t_pl	*stk)
 {
 	int i;
-	int index;
 	
 	insertion_sort(stk);
 	stk->ck.chunksize = 5;
 	stk->ck.n_chunk = stk->len_max / stk->ck.chunksize;
-	stk->ck.chunk = ft_calloc(stk->ck.n_chunk, sizeof(int));
-	i = 0;
-	while (i <= stk->ck.n_chunk)
+	stk->ck.rest_chunk = stk->len_max % stk->ck.chunksize;
+	if (stk->ck.rest_chunk == 0)
+		stk->ck.chunk = ft_calloc(stk->ck.n_chunk, sizeof(int));
+	else
 	{
-		index = i * stk->len_max / stk->ck.n_chunk;
-		stk->ck.chunk[i] = stk->posa.array[index];
+		stk->ck.chunk = ft_calloc((stk->ck.n_chunk + 1), sizeof(int));
+		stk->ck.n_chunk = stk->ck.n_chunk + 1;
+	}
+	i = 1;
+	stk->ck.chunk[0] = stk->posa.array[0];
+	while (i < stk->ck.n_chunk)
+	{
+		stk->ck.chunk[i] = stk->posa.array[(i * stk->ck.chunksize)];
 		i++;
 	}
+	stk->ck.chunk[i] = stk->posa.array[(stk->len_max - 1)];
 	return ;
 }

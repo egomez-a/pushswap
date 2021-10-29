@@ -6,7 +6,7 @@
 /*   By: egomez-a <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/21 14:22:36 by egomez-a          #+#    #+#             */
-/*   Updated: 2021/10/29 01:30:07 by egomez-a         ###   ########.fr       */
+/*   Updated: 2021/10/29 10:39:19 by egomez-a         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,6 +45,7 @@ typedef	struct		s_chunk
 	int		chunksize;
 	int 	*chunk;
 	int 	n_chunk;
+	int		rest_chunk;
 }					t_chunk;
 
 typedef struct		s_pl
