@@ -6,7 +6,7 @@
 /*   By: egomez-a <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/26 20:15:29 by egomez-a          #+#    #+#             */
-/*   Updated: 2021/10/31 07:41:37 by egomez-a         ###   ########.fr       */
+/*   Updated: 2021/10/31 08:15:25 by egomez-a         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -151,13 +151,31 @@ void order_stackb(t_pl *stk)
 	ra(stk);
 	return ;
 }
- 
+
+void	orderstacka(t_pl *stk)
+{
+	int i;
+
+	i = 0;
+	while (i < stk->len_a)
+	{
+		if ((stk->stka[i] > stk->stka[stk->len_a - 1]))
+		{
+			ra(stk);
+			i = 0;
+		}
+		else
+			i++;
+	}
+	return ;
+}
+
 void	orderlastchunk(t_pl *stk)
 {
 	int i;
 
 	i = 0;
-	while (i < stk->len_max)
+	while (i < stk->len_a)
 	{
 		if ((stk->stka[i] <= stk->ck.chunk[stk->ck.n_chunk]) && (stk->stka[i] >= stk->ck.chunk[(stk->ck.n_chunk - 1)]))
 		{
@@ -169,6 +187,8 @@ void	orderlastchunk(t_pl *stk)
 		else 
 			i++;
 	}
+	orderstacka(stk);
+	return ;
 }
 
 /* Ordenación por trozos */
@@ -184,12 +204,15 @@ void	orderstackbychunks(t_pl *stk)
 	while (j <= stk->ck.n_chunk)
 	{
 		i = 0;
-		while (stk->len_b < stk->ck.chunksize)
+		while ((stk->len_b < stk->ck.chunksize) && (j <= stk->ck.n_chunk))
 		{
 			if (j == stk->ck.n_chunk)
 			{
 				if (stk->len_a != stk->ck.chunksize)
+				{
 					orderlastchunk(stk);
+					j++;
+				}
 				else
 					break;
 			}
