@@ -6,7 +6,7 @@
 /*   By: egomez-a <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/26 20:15:29 by egomez-a          #+#    #+#             */
-/*   Updated: 2021/10/29 14:19:54 by egomez-a         ###   ########.fr       */
+/*   Updated: 2021/10/31 07:41:37 by egomez-a         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -157,15 +157,18 @@ void	orderlastchunk(t_pl *stk)
 	int i;
 
 	i = 0;
-	if ((stk->stka[i] <= stk->ck.chunk[stk->ck.n_chunk]) && (stk->stka[i] >= stk->ck.chunk[(stk->ck.n_chunk - 1)]))
+	while (i < stk->len_max)
 	{
-		stk->posa.index = i;
-		pushnumbertotop_a(stk);
-		pb (stk);
-		i = 0;
-	}			
-	else 
-		i++;
+		if ((stk->stka[i] <= stk->ck.chunk[stk->ck.n_chunk]) && (stk->stka[i] >= stk->ck.chunk[(stk->ck.n_chunk - 1)]))
+		{
+			stk->posa.index = i;
+			pushnumbertotop_a(stk);
+			pb (stk);
+			i = 0;
+		}			
+		else 
+			i++;
+	}
 }
 
 /* Ordenación por trozos */
