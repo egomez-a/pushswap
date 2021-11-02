@@ -6,16 +6,18 @@
 /*   By: egomez-a <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/21 14:22:36 by egomez-a          #+#    #+#             */
-/*   Updated: 2021/11/02 17:40:55 by egomez-a         ###   ########.fr       */
+/*   Updated: 2021/11/02 17:46:24 by egomez-a         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
+/* Para probar con cadenas instrucción es: */
+/* ARG=$(ruby -e "puts (0..100).to_a.shuffle.join(' ')"); ./push_swap $ARG */
 
 #ifndef PUSH_SWAP_H
 # define PUSH_SWAP_H
 # include <stdio.h>
 # include <stdlib.h>
 # include <unistd.h>
-# include <math.h>
 # include "../libft/libft.h"
 
 /* Definicion de estructura de datos con las pilas */
