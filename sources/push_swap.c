@@ -6,7 +6,7 @@
 /*   By: egomez-a <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/21 14:41:34 by egomez-a          #+#    #+#             */
-/*   Updated: 2021/11/02 17:57:04 by egomez-a         ###   ########.fr       */
+/*   Updated: 2021/11/02 19:18:12 by egomez-a         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -91,7 +91,7 @@ int	main(int argc, char **argv)
 		orderfive(stk);
 	else 
 		orderstackbychunks(stk);
-//	printstacks(stk);
+	printstacks(stk);
 	free(stk);
 	return (0);
 }
