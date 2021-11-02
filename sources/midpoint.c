@@ -6,7 +6,7 @@
 /*   By: egomez-a <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/26 12:57:46 by egomez-a          #+#    #+#             */
-/*   Updated: 2021/11/02 12:36:15 by egomez-a         ###   ########.fr       */
+/*   Updated: 2021/11/02 15:29:43 by egomez-a         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -138,6 +138,8 @@ void	chunks_size(t_pl	*stk)
 {
 	insertion_sort(stk);
 	stk->ck.chunksize = stk->len_max / (ft_squareroot(stk->len_max) / 2);
+	if (stk->ck.chunksize < 5)
+		stk->ck.chunksize = 5;
 	return ;
 }
 
@@ -148,8 +150,8 @@ void	chunk_limits(t_pl	*stk)
 	int i;
 	
 	insertion_sort(stk);
-//	stk->ck.chunksize = 20;
-	chunks_size(stk);
+	stk->ck.chunksize = 5;
+//	chunks_size(stk);
 	stk->ck.n_chunk = stk->len_max / stk->ck.chunksize;
 	stk->ck.rest_chunk = stk->len_max % stk->ck.chunksize;
 	if (stk->ck.rest_chunk == 0)

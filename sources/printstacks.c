@@ -6,7 +6,7 @@
 /*   By: egomez-a <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/26 13:03:03 by egomez-a          #+#    #+#             */
-/*   Updated: 2021/10/27 13:18:04 by egomez-a         ###   ########.fr       */
+/*   Updated: 2021/11/02 14:38:30 by egomez-a         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,7 +49,10 @@ void	printstacks(t_pl *stk)
 		}
 		printf("\n");
 		if (stk->mov > 0)
+		{
 			printf("Movements: %d\n", stk->mov);
+			printf("Chunk size is: %d\n", stk->ck.chunksize);
+		}
 	}
 	return ;
 }

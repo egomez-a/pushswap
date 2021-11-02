@@ -6,7 +6,7 @@
 /*   By: egomez-a <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/21 14:41:34 by egomez-a          #+#    #+#             */
-/*   Updated: 2021/11/02 12:05:34 by egomez-a         ###   ########.fr       */
+/*   Updated: 2021/11/02 13:45:15 by egomez-a         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -136,7 +136,7 @@ t_pl	*init_structure(t_pl *stk, int argc, char **argv)
 	return (stk);
 }
 
-t_pl	*initstructuresplit(char **split, t_pl *stk, int argc)
+t_pl	*init_structure_split(char **split, t_pl *stk, int argc)
 {
 	int i;
 
@@ -169,7 +169,7 @@ int	main(int argc, char **argv)
 	else
 	{
 		split = ft_split(argv[1], ' ');
-		stk = initstructuresplit(split, stk, argc);
+		stk = init_structure_split(split, stk, argc);
 	}
 	if (check_duplicates(stk) == 0)
 		return (0);

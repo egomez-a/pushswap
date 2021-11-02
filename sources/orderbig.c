@@ -6,7 +6,7 @@
 /*   By: egomez-a <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/26 20:15:29 by egomez-a          #+#    #+#             */
-/*   Updated: 2021/11/02 10:45:26 by egomez-a         ###   ########.fr       */
+/*   Updated: 2021/11/02 14:43:51 by egomez-a         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -233,7 +233,6 @@ void	orderstackbychunks(t_pl *stk)
 			order_stackb(stk);
 		i = 0;
 		while (i < stk->flagorder)
-		/* revisar para que haga rra si merece la pena */
 		{
 			ra(stk);
 			i++;
