@@ -6,7 +6,7 @@
 /*   By: egomez-a <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/21 14:41:34 by egomez-a          #+#    #+#             */
-/*   Updated: 2021/11/02 10:32:23 by egomez-a         ###   ########.fr       */
+/*   Updated: 2021/11/02 12:05:34 by egomez-a         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -136,12 +136,41 @@ t_pl	*init_structure(t_pl *stk, int argc, char **argv)
 	return (stk);
 }
 
+t_pl	*initstructuresplit(char **split, t_pl *stk, int argc)
+{
+	int i;
+
+	i = 0;
+	stk = ft_calloc(sizeof(t_pl), 1);
+	while (split[i])
+		i++;
+	stk->len_a = i;
+	i = 0;
+	stk->len_max = stk->len_a;
+	stk->stka = ft_calloc(stk->len_max, sizeof(int));
+	stk->stkb = ft_calloc(stk->len_max, sizeof(int));
+	while (i < stk->len_a)
+	{
+		stk->stka[i] = ft_atoi(split[i]);
+		i++;
+	}
+	stk->argc = argc;
+	return (stk);
+}
+
 int	main(int argc, char **argv)
 {
 	t_pl	*stk;
+	char 	**split;
 	
 	stk = NULL;
-	stk = init_structure(stk, argc, argv);
+	if (argc > 2)
+		stk = init_structure(stk, argc, argv);
+	else
+	{
+		split = ft_split(argv[1], ' ');
+		stk = initstructuresplit(split, stk, argc);
+	}
 	if (check_duplicates(stk) == 0)
 		return (0);
 	if ((stk) && (stk->len_a < 4))

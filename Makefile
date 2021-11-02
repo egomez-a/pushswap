@@ -6,7 +6,7 @@
 #    By: egomez-a <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/06/23 11:01:24 by egomez-a          #+#    #+#              #
-#    Updated: 2021/10/27 18:21:31 by egomez-a         ###   ########.fr        #
+#    Updated: 2021/11/02 12:36:47 by egomez-a         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -25,6 +25,7 @@ SRCS 		=	push_swap.c \
 				midpoint.c \
 				orderbig.c \
 				check.c \
+				ft_squareroot.c \
 
 NOW			=	$(shell date +"%d-%m-%y %H:%M")
 
