@@ -6,7 +6,7 @@
 #    By: egomez-a <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/06/23 11:01:24 by egomez-a          #+#    #+#              #
-#    Updated: 2021/11/02 17:53:00 by egomez-a         ###   ########.fr        #
+#    Updated: 2021/11/02 19:03:26 by egomez-a         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -68,28 +68,28 @@ $(OBJ_DIR)%.o : $(SRCS_DIR)%.c
 	$(CC) -c $(CFLAGS) $(DEBUGGING) $(LFLAGS) $< -o $@
 
 $(NAME) : $(OBJS)
-	@echo $(GRAY)"==== Compilation of Libft Library==== "$(NONE)
+	@echo $(YELLOW) "==== Compilation of Libft Library==== " $(NONE)
 	@make -C $(LIBFT_DIR)
 	$(CC) $(CFLAGS) $(LFLAGS) $(LIBFT_DIR)$(LIBFT) -o $(NAME) $(OBJS)
 	@echo $(GREEN)"=============== DONE ================"$(NONE)
 
 clean:
-		@echo "========== CLEAN =========="
+		@echo $(ORANGE) "========== CLEAN ==========" $(NONE)
 		$(RM) $(OBJ_DIR)
 		$(RM) $(OBJS)
 		make -C $(LIBFT_DIR) clean
-		@echo "=========== DONE ==========="
+		@echo $(GREEN) "=========== DONE ===========" $(NONE)
 		
 fclean: clean
-		@echo "========== FCLEAN =========="
+		@echo $(ORANGE) "========== FCLEAN ==========" $(NONE)
 		$(RM) $(NAME)
 		make -C $(LIBFT_DIR) fclean
-		@echo "=========== DONE ==========="
+		@echo $(GREEN) "=========== DONE ===========" $(NONE)
 
 re: fclean all
 
 git: fclean
-	@echo "===== PUSHING to GITHUB ===="
+	@echo $(PURPLE) "===== PUSHING to GITHUB ===="  $(NONE)
 	git add .
 	git commit -m "Push_Swap - $(NOW)"
 	git push origin master
