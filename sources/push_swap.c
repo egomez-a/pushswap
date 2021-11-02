@@ -6,7 +6,7 @@
 /*   By: egomez-a <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/21 14:41:34 by egomez-a          #+#    #+#             */
-/*   Updated: 2021/10/29 14:08:25 by egomez-a         ###   ########.fr       */
+/*   Updated: 2021/11/02 10:32:23 by egomez-a         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -144,12 +144,12 @@ int	main(int argc, char **argv)
 	stk = init_structure(stk, argc, argv);
 	if (check_duplicates(stk) == 0)
 		return (0);
-//	if ((stk) && (stk->len_a < 4))
-//		orderlow(stk);
-//	if ((stk) && ((stk->len_a < 6) && (stk->len_a > 3)))
-//		orderfive(stk);
-//	if ((stk) && (stk->len_a >= 6))
-	orderstackbychunks(stk);
+	if ((stk) && (stk->len_a < 4))
+		orderlow(stk);
+	if ((stk) && ((stk->len_a < 6) && (stk->len_a > 4)))
+		orderfive(stk);
+	else 
+		orderstackbychunks(stk);
 	printstacks(stk);
 	free(stk);
 	return (0);

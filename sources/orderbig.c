@@ -6,7 +6,7 @@
 /*   By: egomez-a <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/26 20:15:29 by egomez-a          #+#    #+#             */
-/*   Updated: 2021/10/31 08:15:25 by egomez-a         ###   ########.fr       */
+/*   Updated: 2021/11/02 10:45:26 by egomez-a         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -206,9 +206,9 @@ void	orderstackbychunks(t_pl *stk)
 		i = 0;
 		while ((stk->len_b < stk->ck.chunksize) && (j <= stk->ck.n_chunk))
 		{
-			if (j == stk->ck.n_chunk)
+			if (j == stk->ck.n_chunk) 
 			{
-				if (stk->len_a != stk->ck.chunksize)
+				if ((stk->len_a != stk->ck.chunksize) || (stk->ck.n_chunk == 1))
 				{
 					orderlastchunk(stk);
 					j++;
