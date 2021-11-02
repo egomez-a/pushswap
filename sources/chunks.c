@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   midpoint.c                                         :+:      :+:    :+:   */
+/*   chunks.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: egomez-a <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/26 12:57:46 by egomez-a          #+#    #+#             */
-/*   Updated: 2021/11/02 17:39:34 by egomez-a         ###   ########.fr       */
+/*   Updated: 2021/11/02 17:41:36 by egomez-a         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,8 +27,8 @@ void	chunks_size(t_pl	*stk)
 
 void	chunk_limits(t_pl	*stk)
 {
-	int i;
-	
+	int	i;
+
 	insertion_sort(stk);
 	stk->ck.chunksize = 5;
 	chunks_size(stk);
@@ -54,7 +54,7 @@ void	chunk_limits(t_pl	*stk)
 
 void	place_number(t_pl	*stk)
 {
-	int   index;
+	int	index;
 
 	min_number_a(stk);
 	index = (stk->len_a - (stk->ck.chunkcount - 1) * stk->ck.chunksize);
