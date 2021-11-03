@@ -6,7 +6,7 @@
 /*   By: egomez-a <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/21 14:22:36 by egomez-a          #+#    #+#             */
-/*   Updated: 2021/11/03 15:47:56 by egomez-a         ###   ########.fr       */
+/*   Updated: 2021/11/03 19:28:13 by egomez-a         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,6 +51,15 @@ typedef struct s_chunk
 	int		ckcnt;
 }				t_chunk;
 
+typedef struct s_index
+{
+	int		flag;
+	int		flagrotate;
+	int		mov;
+	int		flagorder;
+	int		count;
+}				t_index;
+
 typedef struct s_pl
 {
 	int		argc;
@@ -60,10 +69,7 @@ typedef struct s_pl
 	int		len_a;
 	int		len_b;
 	int		len_max;
-	int		flag;
-	int		flagrotate;
-	int		mov;
-	int		flagorder;
+	t_index	index;
 	t_pos_a	posa;
 	t_pos_b	posb;
 	t_chunk	ck;

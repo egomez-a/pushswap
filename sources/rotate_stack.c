@@ -6,7 +6,7 @@
 /*   By: egomez-a <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/25 10:19:25 by egomez-a          #+#    #+#             */
-/*   Updated: 2021/10/26 11:11:24 by egomez-a         ###   ########.fr       */
+/*   Updated: 2021/11/03 19:43:30 by egomez-a         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,10 +23,10 @@ void	ra(t_pl *stk)
 	i = 0;
 	if (stk->stka)
 	{
-		if ((stk->flag == 0) && (stk->flagrotate == 0))
+		if ((stk->index.flag == 0) && (stk->index.flagrotate == 0))
 		{
 			write(2, "ra\n", 4);
-			stk->mov++;
+			stk->index.mov++;
 		}
 		aux = stk->stka[0];
 		while (i < stk->len_a - 1)
@@ -36,7 +36,7 @@ void	ra(t_pl *stk)
 		}
 		stk->stka[i] = aux;
 	}
-	stk->flagrotate = 0;
+	stk->index.flagrotate = 0;
 	return ;
 }
 
@@ -48,10 +48,10 @@ void	rb(t_pl *stk)
 	i = 0;
 	if (stk->stkb)
 	{
-		if ((stk->flag == 0) && (stk->flagrotate == 0))
+		if ((stk->index.flag == 0) && (stk->index.flagrotate == 0))
 		{
 			write(2, "rb\n", 4);
-			stk->mov++;
+			stk->index.mov++;
 		}
 		aux = stk->stkb[0];
 		while (i < stk->len_b - 1)
@@ -61,17 +61,17 @@ void	rb(t_pl *stk)
 		}
 		stk->stkb[i] = aux;
 	}
-	stk->flagrotate = 0;
+	stk->index.flagrotate = 0;
 	return ;
 }
 
 void	rr(t_pl *stk)
 {
-	stk->flag = 1;
+	stk->index.flag = 1;
 	ra(stk);
 	rb(stk);
 	write(1, "rr\n", 4);
-	stk->mov++;
-	stk->flag = 0;
+	stk->index.mov++;
+	stk->index.flag = 0;
 	return ;
 }

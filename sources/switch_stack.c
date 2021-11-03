@@ -6,7 +6,7 @@
 /*   By: egomez-a <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/25 10:16:47 by egomez-a          #+#    #+#             */
-/*   Updated: 2021/10/25 13:12:59 by egomez-a         ###   ########.fr       */
+/*   Updated: 2021/11/03 19:44:17 by egomez-a         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,10 +20,10 @@ void	sa(t_pl *stk)
 
 	if (stk->stka)
 	{
-		if (stk->flag == 0)
+		if (stk->index.flag == 0)
 		{
 			write(1, "sa\n", 4);
-			stk->mov++;
+			stk->index.mov++;
 		}
 		aux = stk->stka[0];
 		stk->stka[0] = stk->stka[1];
@@ -38,10 +38,10 @@ void	sb(t_pl *stk)
 
 	if (stk->stkb)
 	{
-		if (stk->flag == 0)
+		if (stk->index.flag == 0)
 		{
 			write(1, "sb\n", 4);
-			stk->mov++;
+			stk->index.mov++;
 		}
 		aux = stk->stkb[0];
 		stk->stkb[0] = stk->stkb[1];
@@ -52,11 +52,11 @@ void	sb(t_pl *stk)
 
 void	ss(t_pl *stk)
 {
-	stk->flag = 1;
+	stk->index.flag = 1;
 	sa(stk);
 	sb(stk);
 	write(1, "ss\n", 4);
-	stk->mov++;
-	stk->flag = 0;
+	stk->index.mov++;
+	stk->index.flag = 0;
 	return ;
 }

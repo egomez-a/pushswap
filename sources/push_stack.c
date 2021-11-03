@@ -6,7 +6,7 @@
 /*   By: egomez-a <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/25 10:18:10 by egomez-a          #+#    #+#             */
-/*   Updated: 2021/11/03 14:56:22 by egomez-a         ###   ########.fr       */
+/*   Updated: 2021/11/03 19:35:05 by egomez-a         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,13 +53,13 @@ void	pa(t_pl	*stk)
 	i = 1;
 	if ((stk->stkb) && (stk->len_b > 0))
 	{
-		stk->flagrotate = 1;
+		stk->index.flagrotate = 1;
 		rb(stk);
 		stk->len_b = stk->len_b - 1;
 		stk->len_a = stk->len_a + 1;
 		push_aux_a(stk);
 		write(2, "pa\n", 4);
-		stk->mov++;
+		stk->index.mov++;
 	}
 	return ;
 }
@@ -73,13 +73,13 @@ void	pb(t_pl	*stk)
 	i = 1;
 	if ((stk->stka) && (stk->len_a > 0))
 	{
-		stk->flagrotate = 1;
+		stk->index.flagrotate = 1;
 		ra(stk);
 		stk->len_a = stk->len_a - 1;
 		stk->len_b = stk->len_b + 1;
 		push_aux_b(stk);
 		write(2, "pb\n", 4);
-		stk->mov++;
+		stk->index.mov++;
 	}
 	return ;
 }

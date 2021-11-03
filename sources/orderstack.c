@@ -6,7 +6,7 @@
 /*   By: egomez-a <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/03 15:43:07 by egomez-a          #+#    #+#             */
-/*   Updated: 2021/11/03 15:43:25 by egomez-a         ###   ########.fr       */
+/*   Updated: 2021/11/03 19:33:18 by egomez-a         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,7 +37,7 @@ void	order_stackb(t_pl *stk)
 {
 	pushmaxtotop_b(stk);
 	pa(stk);
-	stk->flagorder++;
+	stk->index.flagorder++;
 	if (stk->len_b == 0)
 		return ;
 	pushmintotop_b(stk);
