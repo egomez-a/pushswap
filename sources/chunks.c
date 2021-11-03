@@ -6,7 +6,7 @@
 /*   By: egomez-a <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/26 12:57:46 by egomez-a          #+#    #+#             */
-/*   Updated: 2021/11/03 13:15:21 by egomez-a         ###   ########.fr       */
+/*   Updated: 2021/11/03 15:29:20 by egomez-a         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,7 +58,7 @@ void	place_number(t_pl	*stk)
 	int	index;
 
 	min_number_a(stk);
-	index = (stk->len_a - (stk->ck.chunkcount - 1) * stk->ck.chunksize);
+	index = (stk->len_a - (stk->ck.ckcnt - 1) * stk->ck.chunksize);
 	if (stk->posa.min_index < index)
 	{
 		while (stk->posa.min_index != index)

@@ -6,7 +6,7 @@
 /*   By: egomez-a <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/21 14:22:36 by egomez-a          #+#    #+#             */
-/*   Updated: 2021/11/03 13:55:52 by egomez-a         ###   ########.fr       */
+/*   Updated: 2021/11/03 15:47:56 by egomez-a         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,7 +48,7 @@ typedef struct s_chunk
 	int		*chunk;
 	int		n_chunk;
 	int		rest_chunk;
-	int		chunkcount;
+	int		ckcnt;
 }				t_chunk;
 
 typedef struct s_pl
@@ -97,14 +97,19 @@ void	max_number_b(t_pl *stk);
 void	transfer(t_pl *stk);
 void	insertion_sort(t_pl *stk);
 void	orderstack(t_pl *stk);
+void	order_stackb(t_pl *stk);
+void	orderstacka(t_pl *stk);
 void	chunks_size(t_pl *stk);
 void	chunk_limits(t_pl *stk);
 void	place_number(t_pl *stk);
+void	chunkselection(t_pl	*stk);
 void	orderstackbychunks(t_pl *stk);
 void	pushmintotop_a(t_pl *stk);
 void	pushmintotop_b(t_pl *stk);
 void	pushmaxtotop_b(t_pl *stk);
 int		ft_squareroot(int n);
 void	pushnumbertotop_a(t_pl *stk);
+void	free_leaks(t_pl *stk, char **split);
+void	ft_freematrix(char **split);
 
 #endif

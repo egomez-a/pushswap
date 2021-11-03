@@ -6,7 +6,7 @@
 /*   By: egomez-a <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/25 10:18:10 by egomez-a          #+#    #+#             */
-/*   Updated: 2021/11/03 13:19:12 by egomez-a         ###   ########.fr       */
+/*   Updated: 2021/11/03 14:56:22 by egomez-a         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,7 +51,6 @@ void	pa(t_pl	*stk)
 	int	i;
 
 	i = 1;
-//	stk->flag = 1;
 	if ((stk->stkb) && (stk->len_b > 0))
 	{
 		stk->flagrotate = 1;
@@ -72,7 +71,6 @@ void	pb(t_pl	*stk)
 	int	i;
 
 	i = 1;
-//	stk->flag = 1;
 	if ((stk->stka) && (stk->len_a > 0))
 	{
 		stk->flagrotate = 1;

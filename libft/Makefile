@@ -6,19 +6,21 @@
 #    By: egomez-a <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/01/28 12:02:43 by egomez-a          #+#    #+#              #
-#    Updated: 2021/05/14 09:11:01 by egomez-a         ###   ########.fr        #
+#    Updated: 2021/11/03 15:17:03 by egomez-a         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 SRC = ft_atoi.c \
 	  ft_bzero.c \
 	  ft_calloc.c \
+	  ft_freematrix.c \
 	  ft_isalnum.c \
 	  ft_isalpha.c \
 	  ft_isascii.c \
 	  ft_isdigit.c \
 	  ft_isprint.c \
 	  ft_itoa.c \
+	  ft_leaks.c \
 	  ft_memccpy.c \
 	  ft_memchr.c \
 	  ft_memcmp.c \

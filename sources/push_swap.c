@@ -6,7 +6,7 @@
 /*   By: egomez-a <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/21 14:41:34 by egomez-a          #+#    #+#             */
-/*   Updated: 2021/11/03 13:50:45 by egomez-a         ###   ########.fr       */
+/*   Updated: 2021/11/03 15:20:56 by egomez-a         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 t_pl	*init_structure(t_pl *stk, int argc, char **argv)
 {
-	int i;
+	int	i;
 
 	i = 0;
 	stk = ft_calloc(sizeof(t_pl), 1);
@@ -32,7 +32,7 @@ t_pl	*init_structure(t_pl *stk, int argc, char **argv)
 
 t_pl	*init_structure_split(char **split, t_pl *stk)
 {
-	int i;
+	int	i;
 
 	i = 0;
 	stk = ft_calloc(sizeof(t_pl), 1);
@@ -51,94 +51,41 @@ t_pl	*init_structure_split(char **split, t_pl *stk)
 	return (stk);
 }
 
-void	leaks(void)
+void	free_leaks(t_pl *stk, char **split)
 {
-	system("leaks -q push_swap");
-	return ;
-}
-
-void	free_arrays(t_pl *stk)
-{
-	int i;
-
-	i = 0;
-	if (stk->stka)
-	{
-		while (i < stk->len_a)
-		{	
-			stk->stka[i] = 0;
-			i++;
-		}
-	}
-	i = 0;
-	if (stk->stkb)
-	{
-		while (i < stk->len_b)
-		{	
-			stk->stkb[i] = 0;
-			i++;
-		}
-	}
-	i = 0;
-	if (stk->posa.array)
-	{
-		while (i < stk->len_max)
-		{	
-			stk->posa.array[i] = 0;
-			i++;
-		}
-	}
-	i = 0;
-	if (stk->ck.chunk)
-	{
-		while (i < stk->ck.n_chunk)
-		{	
-			stk->ck.chunk[i] = 0;
-			i++;
-		}
-	}
-	
-	return ;
-}
-
-void	free_leaks(t_pl *stk)
-{
-	free_arrays(stk);
+	free(stk->ck.chunk);
 	free(stk->stka);
 	free(stk->stkb);
 	free(stk->posa.array);
 	free(stk->posb.array);
-	free(stk->ck.chunk);
 	free(stk);
+	if (split)
+		ft_freematrix(split);
 }
 
 int	main(int argc, char **argv)
 {
 	t_pl	*stk;
-	char 	**split;
-	
+	char	**split;
+
 	stk = NULL;
+	split = NULL;
 	if (argc > 2)
-	{
 		stk = init_structure(stk, argc, argv);
-	}
 	else
 	{
 		split = ft_split(argv[1], ' ');
 		stk = init_structure_split(split, stk);
 	}
-	if (check_duplicates(stk) == 0)
+	if (check_duplicates(stk))
 	{
-		return (0);
+		if ((stk) && (stk->len_a < 4))
+			orderlow(stk);
+		if ((stk) && ((stk->len_a < 6) && (stk->len_a > 4)))
+			orderfive(stk);
+		else
+			orderstackbychunks(stk);
 	}
-	if ((stk) && (stk->len_a < 4))
-		orderlow(stk);
-	if ((stk) && ((stk->len_a < 6) && (stk->len_a > 4)))
-		orderfive(stk);
-	else
-		orderstackbychunks(stk);
-	printstacks(stk);
-	free_leaks(stk);
-	//atexit(leaks);
+	free_leaks(stk, split);
 	return (0);
 }
