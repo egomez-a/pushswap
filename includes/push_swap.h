@@ -6,7 +6,7 @@
 /*   By: egomez-a <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/21 14:22:36 by egomez-a          #+#    #+#             */
-/*   Updated: 2021/11/03 20:23:29 by egomez-a         ###   ########.fr       */
+/*   Updated: 2021/11/03 20:38:08 by egomez-a         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -79,7 +79,7 @@ int		main(int argc, char **argv);
 t_pl	*init_structure(t_pl *stk, int argc, char **argv);
 t_pl	*init_structure_split(char **split, t_pl *stk);
 int		check_duplicates(t_pl *stk);
-void	check_order(t_pl *stk);
+int		check_order(t_pl *stk);
 void	sa(t_pl	*stk);
 void	sb(t_pl *stk);
 void	ss(t_pl *stk);
@@ -115,6 +115,5 @@ void	pushmaxtotop_b(t_pl *stk);
 int		ft_squareroot(int n);
 void	pushnumbertotop_a(t_pl *stk);
 void	free_leaks(t_pl *stk, char **split);
-void	ft_freematrix(char **split);
 
 #endif

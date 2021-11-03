@@ -6,13 +6,13 @@
 /*   By: egomez-a <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/27 13:08:22 by egomez-a          #+#    #+#             */
-/*   Updated: 2021/11/03 19:52:43 by egomez-a         ###   ########.fr       */
+/*   Updated: 2021/11/03 20:36:54 by egomez-a         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/push_swap.h"
 
-void	check_order(t_pl *stk)
+int	check_order(t_pl *stk)
 {
 	int	i;
 	int	j;
@@ -27,12 +27,12 @@ void	check_order(t_pl *stk)
 			if (stk->stka[i] < stk->stka[j])
 				j++;
 			else
-				return ;
+				return (0);
 		}	
 		i++;
 	}
 	printf("Stack in order\n");
-	return ;
+	return (1);
 }
 
 int 	check_duplicates(t_pl *stk)

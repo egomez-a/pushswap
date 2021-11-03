@@ -6,7 +6,7 @@
 /*   By: egomez-a <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/21 14:41:34 by egomez-a          #+#    #+#             */
-/*   Updated: 2021/11/03 20:21:36 by egomez-a         ###   ########.fr       */
+/*   Updated: 2021/11/03 20:37:42 by egomez-a         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -79,7 +79,9 @@ int	main(int argc, char **argv)
 	}
 	if (check_duplicates(stk))
 	{
-		if ((stk) && (stk->len_a < 4))
+		if (check_order(stk) == 1)
+			return (0);
+		else if ((stk) && (stk->len_a < 4))
 			orderlow(stk);
 		else if ((stk) && ((stk->len_a < 6) && (stk->len_a > 4)))
 			orderfive(stk);
