@@ -6,7 +6,7 @@
 /*   By: egomez-a <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/21 14:22:36 by egomez-a          #+#    #+#             */
-/*   Updated: 2021/11/03 13:35:55 by egomez-a         ###   ########.fr       */
+/*   Updated: 2021/11/03 13:55:52 by egomez-a         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@
 
 /* Definicion de estructura de datos con las pilas */
 
-typedef	struct 		s_pos_a
+typedef struct s_pos_a
 {
 	int		*array;
 	int		max;
@@ -30,28 +30,28 @@ typedef	struct 		s_pos_a
 	int		min;
 	int		min_index;
 	int		index;
-}					t_pos_a;
+}				t_pos_a;
 
-typedef	struct 		s_pos_b
+typedef struct s_pos_b
 {
 	int		*array;
 	int		max;
 	int		max_index;
 	int		min;
 	int		min_index;
-	int 	index;
-}					t_pos_b;
+	int		index;
+}				t_pos_b;
 
-typedef	struct		s_chunk
+typedef struct s_chunk
 {
 	int		chunksize;
-	int 	*chunk;
-	int 	n_chunk;
+	int		*chunk;
+	int		n_chunk;
 	int		rest_chunk;
 	int		chunkcount;
-}					t_chunk;
+}				t_chunk;
 
-typedef struct		s_pl
+typedef struct s_pl
 {
 	int		argc;
 	int		*stka;
@@ -67,33 +67,33 @@ typedef struct		s_pl
 	t_pos_a	posa;
 	t_pos_b	posb;
 	t_chunk	ck;
-}					t_pl;
+}				t_pl;
 
 int		main(int argc, char **argv);
 t_pl	*init_structure(t_pl *stk, int argc, char **argv);
 t_pl	*init_structure_split(char **split, t_pl *stk);
 int		check_duplicates(t_pl *stk);
 void	check_order(t_pl *stk);
-void	sa(t_pl		*stk);
-void	sb(t_pl 	*stk);
-void	ss(t_pl 	*stk);
-void	pa(t_pl		*stk);
-void	pb(t_pl		*stk);
-void	ra(t_pl		*stk);
-void	rb(t_pl		*stk);
-void	rr(t_pl		*stk);
-void	rra(t_pl	*stk);
-void	rrb(t_pl	*stk);
-void	rrr(t_pl	*stk);
+void	sa(t_pl	*stk);
+void	sb(t_pl *stk);
+void	ss(t_pl *stk);
+void	pa(t_pl	*stk);
+void	pb(t_pl	*stk);
+void	ra(t_pl	*stk);
+void	rb(t_pl	*stk);
+void	rr(t_pl	*stk);
+void	rra(t_pl *stk);
+void	rrb(t_pl *stk);
+void	rrr(t_pl *stk);
 void	push_aux_a(t_pl	*stk);
 void	push_aux_b(t_pl	*stk);
 void	printstacks(t_pl *stk);
-void	orderlow(t_pl	*stk);
-void	orderfive(t_pl	*stk);
+void	orderlow(t_pl *stk);
+void	orderfive(t_pl *stk);
 void	min_number_a(t_pl *stk);
 void	min_number_b(t_pl *stk);
-void 	max_number_a(t_pl *stk);
-void 	max_number_b(t_pl *stk);
+void	max_number_a(t_pl *stk);
+void	max_number_b(t_pl *stk);
 void	transfer(t_pl *stk);
 void	insertion_sort(t_pl *stk);
 void	orderstack(t_pl *stk);
@@ -101,10 +101,10 @@ void	chunks_size(t_pl *stk);
 void	chunk_limits(t_pl *stk);
 void	place_number(t_pl *stk);
 void	orderstackbychunks(t_pl *stk);
-void	pushmintotop_a (t_pl *stk);
-void	pushmintotop_b (t_pl *stk);
-void	pushmaxtotop_b (t_pl *stk);
+void	pushmintotop_a(t_pl *stk);
+void	pushmintotop_b(t_pl *stk);
+void	pushmaxtotop_b(t_pl *stk);
 int		ft_squareroot(int n);
-void	pushnumbertotop_a (t_pl *stk);
+void	pushnumbertotop_a(t_pl *stk);
 
 #endif

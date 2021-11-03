@@ -6,27 +6,11 @@
 /*   By: egomez-a <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/21 14:41:34 by egomez-a          #+#    #+#             */
-/*   Updated: 2021/11/03 13:36:35 by egomez-a         ###   ########.fr       */
+/*   Updated: 2021/11/03 13:50:45 by egomez-a         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/push_swap.h"
-
-void	transfer(t_pl *stk)
-{
-	max_number_a(stk);
-	if (((stk->posa.max_index) + 1) <= ((stk->len_a)/2) && (stk->stka[0] != stk->posa.max))
-	{
-		while (stk->stka[0] != stk->posa.max)
-			ra(stk);
-	}
-	if (((stk->posa.max_index) + 1) > ((stk->len_a)/2) && (stk->stka[0] != stk->posa.max))
-	{
-		while (stk->stka[0] != stk->posa.max)
-			rra(stk);
-	}
-	return ;
-}
 
 t_pl	*init_structure(t_pl *stk, int argc, char **argv)
 {
@@ -155,6 +139,6 @@ int	main(int argc, char **argv)
 		orderstackbychunks(stk);
 	printstacks(stk);
 	free_leaks(stk);
-	atexit(leaks);
+	//atexit(leaks);
 	return (0);
 }
