@@ -6,7 +6,7 @@
 /*   By: egomez-a <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/25 10:18:10 by egomez-a          #+#    #+#             */
-/*   Updated: 2021/10/26 11:11:09 by egomez-a         ###   ########.fr       */
+/*   Updated: 2021/11/03 11:36:44 by egomez-a         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,7 @@ void	push_aux_a(t_pl	*stk)
 		stk->aux[i] = stk->stka[i - 1];
 		i++;
 	}
+	free(stk->stka);
 	stk->stka = stk->aux;
 }
 
@@ -39,6 +40,7 @@ void	push_aux_b(t_pl	*stk)
 		stk->aux[i] = stk->stkb[i - 1];
 		i++;
 	}
+	free(stk->stkb);
 	stk->stkb = stk->aux;
 }
 

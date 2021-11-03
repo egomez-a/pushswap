@@ -6,7 +6,7 @@
 /*   By: egomez-a <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/26 12:57:46 by egomez-a          #+#    #+#             */
-/*   Updated: 2021/11/03 10:30:41 by egomez-a         ###   ########.fr       */
+/*   Updated: 2021/11/03 11:30:32 by egomez-a         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,17 +29,16 @@ void	chunk_limits(t_pl	*stk)
 {
 	int	i;
 
-	insertion_sort(stk);
 	stk->ck.chunksize = 40;
 	chunks_size(stk);
 	stk->ck.n_chunk = stk->len_max / stk->ck.chunksize;
 	stk->ck.rest_chunk = stk->len_max % stk->ck.chunksize;
 	if (stk->ck.rest_chunk == 0)
-		stk->ck.chunk = ft_calloc(stk->ck.n_chunk + 1, sizeof(int));
+		stk->ck.chunk = ft_calloc(stk->ck.n_chunk, sizeof(int));
 	else
 	{
 		stk->ck.n_chunk = stk->ck.n_chunk + 1;
-		stk->ck.chunk = ft_calloc((stk->ck.n_chunk + 1), sizeof(int));
+		stk->ck.chunk = ft_calloc((stk->ck.n_chunk), sizeof(int));
 	}
 	i = 1;
 	stk->ck.chunk[0] = stk->posa.array[0];

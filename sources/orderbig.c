@@ -6,7 +6,7 @@
 /*   By: egomez-a <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/26 20:15:29 by egomez-a          #+#    #+#             */
-/*   Updated: 2021/11/02 17:20:56 by egomez-a         ###   ########.fr       */
+/*   Updated: 2021/11/03 11:34:14 by egomez-a         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -222,6 +222,7 @@ void	orderstackbychunks(t_pl *stk)
 					stk->posa.index = i;
 					pushnumbertotop_a(stk);
 					pb (stk);
+					system("leaks -q push_swap");
 					i = 0;
 				}			
 				else 

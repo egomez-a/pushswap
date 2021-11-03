@@ -6,7 +6,7 @@
 #    By: egomez-a <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/06/23 11:01:24 by egomez-a          #+#    #+#              #
-#    Updated: 2021/11/03 11:16:33 by egomez-a         ###   ########.fr        #
+#    Updated: 2021/11/03 11:38:51 by egomez-a         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -34,7 +34,7 @@ NOW			=	$(shell date +"%d-%m-%y %H:%M")
 
 OBJS 		= 	$(addprefix $(OBJ_DIR), $(SRCS:.c=.o))
 
-CFLAGS 		= 	-Wall -Wextra -Werror #-g3 -fsanitize=address
+CFLAGS 		= 	-Wall -Wextra -Werror -g3 -fsanitize=address
 DEBUGGING	= 	-g
 LFLAGS		= 	-I includes/
 CC 			= 	gcc

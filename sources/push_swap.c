@@ -6,7 +6,7 @@
 /*   By: egomez-a <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/21 14:41:34 by egomez-a          #+#    #+#             */
-/*   Updated: 2021/11/03 11:17:01 by egomez-a         ###   ########.fr       */
+/*   Updated: 2021/11/03 11:39:12 by egomez-a         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -135,7 +135,6 @@ int	main(int argc, char **argv)
 	char 	**split;
 	
 	stk = NULL;
-	atexit(leaks);
 	if (argc > 2)
 	{
 		stk = init_structure(stk, argc, argv);
@@ -147,17 +146,16 @@ int	main(int argc, char **argv)
 	}
 	if (check_duplicates(stk) == 0)
 	{
-		free_arrays(stk);
 		return (0);
 	}
 	if ((stk) && (stk->len_a < 4))
 		orderlow(stk);
 	if ((stk) && ((stk->len_a < 6) && (stk->len_a > 4)))
 		orderfive(stk);
-	else 
+	else
 		orderstackbychunks(stk);
 	printstacks(stk);
-	free_arrays(stk);
 	free_leaks(stk);
+	//atexit(leaks);
 	return (0);
 }
