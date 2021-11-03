@@ -6,7 +6,7 @@
 /*   By: egomez-a <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/21 14:41:34 by egomez-a          #+#    #+#             */
-/*   Updated: 2021/11/03 11:39:12 by egomez-a         ###   ########.fr       */
+/*   Updated: 2021/11/03 13:36:35 by egomez-a         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,8 +43,6 @@ t_pl	*init_structure(t_pl *stk, int argc, char **argv)
 		stk->stka[i] = ft_atoi(argv[i + 1]);
 		i++;
 	}
-	// stk->argc = argc;
-	// stk->argv = argv;
 	return (stk);
 }
 
@@ -66,7 +64,6 @@ t_pl	*init_structure_split(char **split, t_pl *stk)
 		stk->stka[i] = ft_atoi(split[i]);
 		i++;
 	}
-	//stk->argc = argc;
 	return (stk);
 }
 
@@ -122,9 +119,11 @@ void	free_arrays(t_pl *stk)
 
 void	free_leaks(t_pl *stk)
 {
+	free_arrays(stk);
 	free(stk->stka);
 	free(stk->stkb);
 	free(stk->posa.array);
+	free(stk->posb.array);
 	free(stk->ck.chunk);
 	free(stk);
 }
@@ -156,6 +155,6 @@ int	main(int argc, char **argv)
 		orderstackbychunks(stk);
 	printstacks(stk);
 	free_leaks(stk);
-	//atexit(leaks);
+	atexit(leaks);
 	return (0);
 }

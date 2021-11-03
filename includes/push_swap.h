@@ -6,7 +6,7 @@
 /*   By: egomez-a <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/21 14:22:36 by egomez-a          #+#    #+#             */
-/*   Updated: 2021/11/03 11:14:25 by egomez-a         ###   ########.fr       */
+/*   Updated: 2021/11/03 13:35:55 by egomez-a         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,7 +54,6 @@ typedef	struct		s_chunk
 typedef struct		s_pl
 {
 	int		argc;
-//	char	**argv;
 	int		*stka;
 	int		*stkb;
 	int		*aux;
@@ -106,5 +105,6 @@ void	pushmintotop_a (t_pl *stk);
 void	pushmintotop_b (t_pl *stk);
 void	pushmaxtotop_b (t_pl *stk);
 int		ft_squareroot(int n);
+void	pushnumbertotop_a (t_pl *stk);
 
 #endif
