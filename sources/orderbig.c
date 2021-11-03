@@ -6,7 +6,7 @@
 /*   By: egomez-a <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/26 20:15:29 by egomez-a          #+#    #+#             */
-/*   Updated: 2021/11/03 19:46:22 by egomez-a         ###   ########.fr       */
+/*   Updated: 2021/11/03 19:51:18 by egomez-a         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,6 +33,20 @@ void	orderlastchunk(t_pl *stk)
 	orderstacka(stk);
 }
 
+void	orderchunk(t_pl	*stk)
+{
+	if ((stk->stka[stk->index.count] < stk->ck.chunk[stk->ck.ckcnt])
+		&& (stk->stka[stk->index.count] >= stk->ck.chunk[(stk->ck.ckcnt - 1)]))
+	{
+		stk->posa.index = stk->index.count;
+		pushnumbertotop_a(stk);
+		pb (stk);
+		stk->index.count = 0;
+	}			
+	else
+		stk->index.count++;
+}
+
 void	chunkselection(t_pl	*stk)
 {
 	stk->index.count = 0;
@@ -50,18 +64,7 @@ void	chunkselection(t_pl	*stk)
 				break ;
 		}
 		else
-		{
-			if ((stk->stka[stk->index.count] < stk->ck.chunk[stk->ck.ckcnt])
-				&& (stk->stka[stk->index.count] >= stk->ck.chunk[(stk->ck.ckcnt - 1)]))
-			{
-				stk->posa.index = stk->index.count;
-				pushnumbertotop_a(stk);
-				pb (stk);
-				stk->index.count = 0;
-			}			
-			else
-				stk->index.count++;
-		}
+			orderchunk(stk);
 	}
 }
 

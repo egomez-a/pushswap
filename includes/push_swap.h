@@ -6,7 +6,7 @@
 /*   By: egomez-a <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/21 14:22:36 by egomez-a          #+#    #+#             */
-/*   Updated: 2021/11/03 19:28:13 by egomez-a         ###   ########.fr       */
+/*   Updated: 2021/11/03 20:23:29 by egomez-a         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -93,7 +93,6 @@ void	rrb(t_pl *stk);
 void	rrr(t_pl *stk);
 void	push_aux_a(t_pl	*stk);
 void	push_aux_b(t_pl	*stk);
-void	printstacks(t_pl *stk);
 void	orderlow(t_pl *stk);
 void	orderfive(t_pl *stk);
 void	min_number_a(t_pl *stk);

@@ -6,7 +6,7 @@
 #    By: egomez-a <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/06/23 11:01:24 by egomez-a          #+#    #+#              #
-#    Updated: 2021/11/03 15:49:09 by egomez-a         ###   ########.fr        #
+#    Updated: 2021/11/03 20:22:57 by egomez-a         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -21,9 +21,9 @@ SRCS 		=	push_swap.c \
 				switch_stack.c \
 				rotate_stack.c \
 				reverserotate_stack.c \
-				printstacks.c \
 				orderbig.c \
 				orderlow.c \
+				orderfive.c \
 				check.c \
 				insertion_sort.c \
 				find_array_elements.c \

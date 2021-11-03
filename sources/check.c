@@ -6,7 +6,7 @@
 /*   By: egomez-a <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/27 13:08:22 by egomez-a          #+#    #+#             */
-/*   Updated: 2021/11/03 11:15:22 by egomez-a         ###   ########.fr       */
+/*   Updated: 2021/11/03 19:52:43 by egomez-a         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,8 @@
 
 void	check_order(t_pl *stk)
 {
-	int i;
-	int j;
+	int	i;
+	int	j;
 
 	i = 0;
 	j = 0;
@@ -37,13 +37,13 @@ void	check_order(t_pl *stk)
 
 int 	check_duplicates(t_pl *stk)
 {
-	int i;
-	int j;
+	int	i;
+	int	j;
 
 	if (!(stk) || stk->len_a < 1)
 	{
 		write(2, "Error\n", 6);
-		return (0);		
+		return (0);
 	}
 	i = 0;
 	while (i < stk->len_a)

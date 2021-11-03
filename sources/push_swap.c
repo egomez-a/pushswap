@@ -6,7 +6,7 @@
 /*   By: egomez-a <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/21 14:41:34 by egomez-a          #+#    #+#             */
-/*   Updated: 2021/11/03 19:47:10 by egomez-a         ###   ########.fr       */
+/*   Updated: 2021/11/03 20:21:36 by egomez-a         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -81,12 +81,11 @@ int	main(int argc, char **argv)
 	{
 		if ((stk) && (stk->len_a < 4))
 			orderlow(stk);
-		if ((stk) && ((stk->len_a < 6) && (stk->len_a > 4)))
+		else if ((stk) && ((stk->len_a < 6) && (stk->len_a > 4)))
 			orderfive(stk);
 		else
 			orderstackbychunks(stk);
 	}
-	printstacks(stk);
 	free_leaks(stk, split);
 	return (0);
 }
