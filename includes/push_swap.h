@@ -6,7 +6,7 @@
 /*   By: egomez-a <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/21 14:22:36 by egomez-a          #+#    #+#             */
-/*   Updated: 2021/11/02 17:46:24 by egomez-a         ###   ########.fr       */
+/*   Updated: 2021/11/03 11:14:25 by egomez-a         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,7 +54,7 @@ typedef	struct		s_chunk
 typedef struct		s_pl
 {
 	int		argc;
-	char	**argv;
+//	char	**argv;
 	int		*stka;
 	int		*stkb;
 	int		*aux;
@@ -72,6 +72,7 @@ typedef struct		s_pl
 
 int		main(int argc, char **argv);
 t_pl	*init_structure(t_pl *stk, int argc, char **argv);
+t_pl	*init_structure_split(char **split, t_pl *stk);
 int		check_duplicates(t_pl *stk);
 void	check_order(t_pl *stk);
 void	sa(t_pl		*stk);

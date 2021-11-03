@@ -6,7 +6,7 @@
 /*   By: egomez-a <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/27 13:08:22 by egomez-a          #+#    #+#             */
-/*   Updated: 2021/10/27 13:12:49 by egomez-a         ###   ########.fr       */
+/*   Updated: 2021/11/03 11:15:22 by egomez-a         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,10 +40,9 @@ int 	check_duplicates(t_pl *stk)
 	int i;
 	int j;
 
-	if (!(stk) || stk->argc < 2)
+	if (!(stk) || stk->len_a < 1)
 	{
 		write(2, "Error\n", 6);
-		free(stk);
 		return (0);		
 	}
 	i = 0;
@@ -55,7 +54,6 @@ int 	check_duplicates(t_pl *stk)
 			if (stk->stka[i] == stk->stka[j])
 			{
 				write(2, "Error\n", 6);
-				free(stk);
 				return (0);
 			}
 			j++;
