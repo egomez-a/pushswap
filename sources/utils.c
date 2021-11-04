@@ -6,7 +6,7 @@
 /*   By: egomez-a <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/04 15:14:38 by egomez-a          #+#    #+#             */
-/*   Updated: 2021/11/04 15:37:23 by egomez-a         ###   ########.fr       */
+/*   Updated: 2021/11/04 20:20:55 by egomez-a         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@
 ** copy a str until stop character or end of string str
 */
 
-char		*ft_strdup_char(const char *str, char stop)
+char	*ft_strdup_char(const char *str, char stop)
 {
 	int		i;
 	char	*pt;
@@ -24,7 +24,8 @@ char		*ft_strdup_char(const char *str, char stop)
 	i = 0;
 	while (str[i] && str[i] != stop)
 		i++;
-	if (!(pt = malloc((i + 1) * sizeof(char))))
+	pt = malloc((i + 1) * sizeof(char));
+	if (!(pt))
 		return (0);
 	i = -1;
 	while (str[++i] && str[i] != stop)
@@ -38,7 +39,7 @@ char		*ft_strdup_char(const char *str, char stop)
 ** an error (not a number or not a integer)
 */
 
-int			ft_atoi_m(const char *str, int *num, int argc)
+int	ft_atoi_m(const char *str, int *num)
 {
 	char	*ptr;
 	long	nbr;
