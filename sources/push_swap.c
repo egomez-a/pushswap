@@ -6,7 +6,7 @@
 /*   By: egomez-a <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/21 14:41:34 by egomez-a          #+#    #+#             */
-/*   Updated: 2021/11/04 20:29:00 by egomez-a         ###   ########.fr       */
+/*   Updated: 2021/11/04 20:32:09 by egomez-a         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,6 +34,7 @@ t_pl	*init_structure(t_pl *stk, int argc, char **argv)
 		stk->stka[i] = ft_atoi(argv[i + 1]);
 		i++;
 	}
+	free(str);
 	return (stk);
 }
 
