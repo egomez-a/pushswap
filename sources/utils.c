@@ -6,7 +6,7 @@
 /*   By: egomez-a <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/04 15:14:38 by egomez-a          #+#    #+#             */
-/*   Updated: 2021/11/04 20:20:55 by egomez-a         ###   ########.fr       */
+/*   Updated: 2021/11/04 20:29:34 by egomez-a         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,7 +39,7 @@ char	*ft_strdup_char(const char *str, char stop)
 ** an error (not a number or not a integer)
 */
 
-int	ft_atoi_m(const char *str, int *num)
+int	ft_atoi_m(const char *str, char *num)
 {
 	char	*ptr;
 	long	nbr;
