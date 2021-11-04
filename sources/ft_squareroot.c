@@ -6,11 +6,13 @@
 /*   By: egomez-a <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/02 12:35:12 by egomez-a          #+#    #+#             */
-/*   Updated: 2021/11/03 19:53:05 by egomez-a         ###   ########.fr       */
+/*   Updated: 2021/11/04 15:15:06 by egomez-a         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 /* Función para estimar raiz cuadrada. Algoritmo babilónico */
+
+#include "../includes/push_swap.h"
 
 int	ft_squareroot(int n)
 {

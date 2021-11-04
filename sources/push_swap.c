@@ -6,7 +6,7 @@
 /*   By: egomez-a <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/21 14:41:34 by egomez-a          #+#    #+#             */
-/*   Updated: 2021/11/04 09:59:09 by egomez-a         ###   ########.fr       */
+/*   Updated: 2021/11/04 15:36:40 by egomez-a         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,8 @@
 
 t_pl	*init_structure(t_pl *stk, int argc, char **argv)
 {
-	int	i;
+	int		i;
+//	char	*str;
 
 	i = 0;
 	stk = ft_calloc(sizeof(t_pl), 1);
@@ -24,6 +25,12 @@ t_pl	*init_structure(t_pl *stk, int argc, char **argv)
 	stk->stkb = ft_calloc(stk->len_max, sizeof(int));
 	while (i < stk->len_a)
 	{
+		// str = ft_strdup_char(argc, ' ');
+		// if (ft_atoi_m(str, argv[i], argc))
+		// {
+		// 	write(1, "Error\n", 6);
+		// 	return (NULL);
+		// }
 		stk->stka[i] = ft_atoi(argv[i + 1]);
 		i++;
 	}
@@ -32,7 +39,8 @@ t_pl	*init_structure(t_pl *stk, int argc, char **argv)
 
 t_pl	*init_structure_split(char **split, t_pl *stk)
 {
-	int	i;
+	int		i;
+//	char	*str;
 
 	i = 0;
 	stk = ft_calloc(sizeof(t_pl), 1);
@@ -45,6 +53,12 @@ t_pl	*init_structure_split(char **split, t_pl *stk)
 	stk->stkb = ft_calloc(stk->len_max, sizeof(int));
 	while (i < stk->len_a)
 	{
+		// str = ft_strdup_char(arg, ' ');
+		// if (ft_atoi_m())
+		// {
+		// 	write(1, "Error\n", 6);
+		// 	return (NULL);
+		// }
 		stk->stka[i] = ft_atoi(split[i]);
 		i++;
 	}
@@ -89,5 +103,6 @@ int	main(int argc, char **argv)
 			orderstackbychunks(stk);
 	}
 	free_leaks(stk, split);
+	atexit(leaks);
 	return (0);
 }

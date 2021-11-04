@@ -12,7 +12,7 @@
 			"request": "launch",
 			"program": "/Users/egomez-a/Documents/pushswap/NUEVO/pushswap/push_swap",
 //			"program": "/Users/egat/Documents/42/pushswap/push_swap",
-			"args": ["4 67 3 87 23"],
+			"args": ["4 67 3 one 23"],
 			"stopAtEntry": false,
 			"cwd": "${workspaceFolder}",
 			"environment": [],
