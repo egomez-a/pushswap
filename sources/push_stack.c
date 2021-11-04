@@ -6,7 +6,7 @@
 /*   By: egomez-a <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/25 10:18:10 by egomez-a          #+#    #+#             */
-/*   Updated: 2021/11/03 19:35:05 by egomez-a         ###   ########.fr       */
+/*   Updated: 2021/11/04 10:00:28 by egomez-a         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,7 +58,7 @@ void	pa(t_pl	*stk)
 		stk->len_b = stk->len_b - 1;
 		stk->len_a = stk->len_a + 1;
 		push_aux_a(stk);
-		write(2, "pa\n", 4);
+		write(1, "pa\n", 3);
 		stk->index.mov++;
 	}
 	return ;
@@ -78,7 +78,7 @@ void	pb(t_pl	*stk)
 		stk->len_a = stk->len_a - 1;
 		stk->len_b = stk->len_b + 1;
 		push_aux_b(stk);
-		write(2, "pb\n", 4);
+		write(1, "pb\n", 3);
 		stk->index.mov++;
 	}
 	return ;

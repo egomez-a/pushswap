@@ -6,7 +6,7 @@
 #    By: egomez-a <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/06/23 11:01:24 by egomez-a          #+#    #+#              #
-#    Updated: 2021/11/03 20:22:57 by egomez-a         ###   ########.fr        #
+#    Updated: 2021/11/04 10:02:11 by egomez-a         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -30,7 +30,7 @@ SRCS 		=	push_swap.c \
 				ft_squareroot.c \
 				chunks.c \
 				move_in_stacks.c \
-				orderstack.c
+				orderstack.c 
 
 NOW			=	$(shell date +"%d-%m-%y %H:%M")
 

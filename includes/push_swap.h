@@ -6,7 +6,7 @@
 /*   By: egomez-a <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/21 14:22:36 by egomez-a          #+#    #+#             */
-/*   Updated: 2021/11/03 20:38:08 by egomez-a         ###   ########.fr       */
+/*   Updated: 2021/11/04 09:49:50 by egomez-a         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -115,5 +115,6 @@ void	pushmaxtotop_b(t_pl *stk);
 int		ft_squareroot(int n);
 void	pushnumbertotop_a(t_pl *stk);
 void	free_leaks(t_pl *stk, char **split);
+void	printstacks(t_pl *stk);
 
 #endif

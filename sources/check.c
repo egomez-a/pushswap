@@ -6,7 +6,7 @@
 /*   By: egomez-a <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/27 13:08:22 by egomez-a          #+#    #+#             */
-/*   Updated: 2021/11/03 20:36:54 by egomez-a         ###   ########.fr       */
+/*   Updated: 2021/11/04 10:00:20 by egomez-a         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,18 +31,17 @@ int	check_order(t_pl *stk)
 		}	
 		i++;
 	}
-	printf("Stack in order\n");
 	return (1);
 }
 
-int 	check_duplicates(t_pl *stk)
+int	check_duplicates(t_pl *stk)
 {
 	int	i;
 	int	j;
 
 	if (!(stk) || stk->len_a < 1)
 	{
-		write(2, "Error\n", 6);
+		write(1, "Error\n", 6);
 		return (0);
 	}
 	i = 0;
@@ -53,7 +52,7 @@ int 	check_duplicates(t_pl *stk)
 		{
 			if (stk->stka[i] == stk->stka[j])
 			{
-				write(2, "Error\n", 6);
+				write(1, "Error\n", 6);
 				return (0);
 			}
 			j++;

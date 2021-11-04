@@ -6,7 +6,7 @@
 /*   By: egomez-a <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/25 10:30:46 by egomez-a          #+#    #+#             */
-/*   Updated: 2021/11/03 19:36:43 by egomez-a         ###   ########.fr       */
+/*   Updated: 2021/11/04 10:00:36 by egomez-a         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,11 +23,6 @@ void	rra(t_pl *stk)
 	i = stk->len_a - 1;
 	if (stk->stka)
 	{
-		if (stk->index.flag == 0)
-		{
-			write(2, "rra\n", 5);
-			stk->index.mov++;
-		}
 		aux = stk->stka[stk->len_a - 1];
 		while (i > 0)
 		{
@@ -35,6 +30,11 @@ void	rra(t_pl *stk)
 			i--;
 		}
 		stk->stka[i] = aux;
+		if (stk->index.flag == 0)
+		{
+			write(1, "rra\n", 4);
+			stk->index.mov++;
+		}
 	}
 	return ;
 }
@@ -47,11 +47,6 @@ void	rrb(t_pl *stk)
 	i = stk->len_b - 1;
 	if (stk->stkb)
 	{
-		if (stk->index.flag == 0)
-		{
-			write(2, "rrb\n", 5);
-			stk->index.mov++;
-		}
 		aux = stk->stkb[stk->len_b - 1];
 		while (i > 0)
 		{
@@ -59,6 +54,11 @@ void	rrb(t_pl *stk)
 			i--;
 		}
 		stk->stkb[i] = aux;
+		if (stk->index.flag == 0)
+		{
+			write(1, "rrb\n", 4);
+			stk->index.mov++;
+		}
 	}
 	return ;
 }
@@ -68,7 +68,7 @@ void	rrr(t_pl *stk)
 	stk->index.flag = 1;
 	rra(stk);
 	rrb(stk);
-	write(1, "rrr\n", 5);
+	write(1, "rrr\n", 4);
 	stk->index.mov++;
 	stk->index.flag = 0;
 	return ;
