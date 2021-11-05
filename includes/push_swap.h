@@ -6,7 +6,7 @@
 /*   By: egomez-a <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/21 14:22:36 by egomez-a          #+#    #+#             */
-/*   Updated: 2021/11/05 12:43:20 by egomez-a         ###   ########.fr       */
+/*   Updated: 2021/11/05 12:59:49 by egomez-a         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -117,7 +117,6 @@ int		ft_squareroot(int n);
 void	pushnumbertotop_a(t_pl *stk);
 void	free_leaks(t_pl *stk, char **split);
 void	printstacks(t_pl *stk);
-char	*ft_strdup_char(const char *str, char stop);
 int		ft_atoi_modified(const char *str, int *nbr);
 
 #endif
