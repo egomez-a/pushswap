@@ -6,7 +6,7 @@
 /*   By: egomez-a <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/21 14:41:34 by egomez-a          #+#    #+#             */
-/*   Updated: 2021/11/04 20:32:09 by egomez-a         ###   ########.fr       */
+/*   Updated: 2021/11/05 12:32:22 by egomez-a         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,9 +15,10 @@
 t_pl	*init_structure(t_pl *stk, int argc, char **argv)
 {
 	int		i;
-	char	*str;
+	int		num;
 
 	i = 0;
+	num = 0;
 	stk = ft_calloc(sizeof(t_pl), 1);
 	stk->len_a = argc - 1;
 	stk->len_max = stk->len_a;
@@ -25,16 +26,14 @@ t_pl	*init_structure(t_pl *stk, int argc, char **argv)
 	stk->stkb = ft_calloc(stk->len_max, sizeof(int));
 	while (i < stk->len_a)
 	{
-		str = ft_strdup_char(argv[i + 1], ' ');
-		if (ft_atoi_m(str, argv[i]))
+		if (ft_atoi_modified(argv[i + 1], &num) == 0)
 		{
 			write(1, "Error\n", 6);
 			return (NULL);
 		}
-		stk->stka[i] = ft_atoi(argv[i + 1]);
+		stk->stka[i] = num;
 		i++;
 	}
-	free(str);
 	return (stk);
 }
 
@@ -53,6 +52,9 @@ t_pl	*init_structure_split(char **split, t_pl *stk)
 	stk->stkb = ft_calloc(stk->len_max, sizeof(int));
 	while (i < stk->len_a)
 	{
+		
+//		str = ft_strdup_char(argv[i + 1], ' ');
+		
 		stk->stka[i] = ft_atoi(split[i]);
 		i++;
 	}
@@ -79,7 +81,11 @@ int	main(int argc, char **argv)
 	stk = NULL;
 	split = NULL;
 	if (argc > 2)
+	{
 		stk = init_structure(stk, argc, argv);
+		if (!stk)
+			return (0);
+	}
 	else
 	{
 		split = ft_split(argv[1], ' ');
@@ -97,6 +103,6 @@ int	main(int argc, char **argv)
 			orderstackbychunks(stk);
 	}
 	free_leaks(stk, split);
-	atexit(leaks);
+//	atexit(leaks);
 	return (0);
 }

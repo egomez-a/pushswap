@@ -6,7 +6,7 @@
 /*   By: egomez-a <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/04 15:14:38 by egomez-a          #+#    #+#             */
-/*   Updated: 2021/11/04 20:29:34 by egomez-a         ###   ########.fr       */
+/*   Updated: 2021/11/05 12:26:47 by egomez-a         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,25 +39,28 @@ char	*ft_strdup_char(const char *str, char stop)
 ** an error (not a number or not a integer)
 */
 
-int	ft_atoi_m(const char *str, char *num)
+int	ft_atoi_modified(const char *str, int *nbr)
 {
 	char	*ptr;
-	long	nbr;
 	int		sign;
+	long	num;
 	size_t	i;
 
 	ptr = (char *)str;
-	nbr = 0;
+	num = 0;
 	sign = 1;
-	if (*ptr == '-' && ptr++)
-		sign *= -1;
-	if (*ptr == '\0')
-		return (1);
+	if ((*str == '-') || (*str == '+'))
+	{
+		if (*ptr == '-' && ptr++)
+			sign *= -1;
+	}
+	if ((*ptr == '\0') || (*str == '-') || (*str == '+'))
+		return (0);
 	i = 0;
 	while (*ptr >= '0' && *ptr <= '9' && i++ < 10)
-		nbr = nbr * 10 + *ptr++ - '0';
-	if (*ptr != '\0' || nbr * sign > 2147483647 || nbr * sign < -2147483648)
-		return (1);
-	*num = nbr * sign;
-	return (0);
+		num = num * 10 + *ptr++ - '0';
+	if (*ptr != '\0' || num * sign > 2147483647 || num * sign < -2147483648)
+		return (0);
+	*nbr = num * sign;
+	return (1);
 }
