@@ -6,12 +6,13 @@
 /*   By: egomez-a <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/21 14:22:36 by egomez-a          #+#    #+#             */
-/*   Updated: 2021/11/05 12:16:45 by egomez-a         ###   ########.fr       */
+/*   Updated: 2021/11/05 12:43:20 by egomez-a         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 /* Para probar con cadenas instrucción es: */
 /* ARG=$(ruby -e "puts (0..100).to_a.shuffle.join(' ')"); ./push_swap $ARG */
+/* añadir atexit(leaks) para detectar leaks */
 
 #ifndef PUSH_SWAP_H
 # define PUSH_SWAP_H

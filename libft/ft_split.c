@@ -6,11 +6,14 @@
 /*   By: egomez-a <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/29 12:26:45 by egomez-a          #+#    #+#             */
-/*   Updated: 2021/04/28 11:41:25 by egomez-a         ###   ########.fr       */
+/*   Updated: 2021/11/05 12:57:16 by egomez-a         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
+
+/* Reserva con malloc(3) y devuelve un array de strings obtenido al separar */
+/* ’s’ con el caracter ’c’ como delimitador. El array debe terminar en NULL. */
 
 static int	ft_countwords(char const *s, char c)
 {

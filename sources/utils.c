@@ -6,14 +6,14 @@
 /*   By: egomez-a <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/04 15:14:38 by egomez-a          #+#    #+#             */
-/*   Updated: 2021/11/05 12:26:47 by egomez-a         ###   ########.fr       */
+/*   Updated: 2021/11/05 12:56:48 by egomez-a         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/push_swap.h"
 
 /*
-** copy a str until stop character or end of string str
+** Copia un str hasta un carácter que actúa de stop, o hasta fin de str **
 */
 
 char	*ft_strdup_char(const char *str, char stop)
@@ -34,10 +34,8 @@ char	*ft_strdup_char(const char *str, char stop)
 	return (pt);
 }
 
-/*
-** atoi passing a pointer to the number in parameter and returning 1 if there is
-** an error (not a number or not a integer)
-*/
+/* atoi pasa un puntero al número en parámetro de entrada y retorna 0 si */
+/* hay un error (no un número entero) */
 
 int	ft_atoi_modified(const char *str, int *nbr)
 {
