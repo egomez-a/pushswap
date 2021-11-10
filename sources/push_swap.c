@@ -6,7 +6,7 @@
 /*   By: egomez-a <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/21 14:41:34 by egomez-a          #+#    #+#             */
-/*   Updated: 2021/11/05 14:01:12 by egomez-a         ###   ########.fr       */
+/*   Updated: 2021/11/10 09:46:04 by egomez-a         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -115,7 +115,6 @@ int	main(int argc, char **argv)
 	}
 	if (!main_order(stk))
 		return (0);
-//	printstacks(stk);
 	free_leaks(stk, split);
 	return (0);
 }
