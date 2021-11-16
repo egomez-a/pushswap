@@ -6,7 +6,7 @@
 /*   By: egomez-a <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/21 14:41:34 by egomez-a          #+#    #+#             */
-/*   Updated: 2021/11/16 15:54:25 by egomez-a         ###   ########.fr       */
+/*   Updated: 2021/11/16 21:47:56 by egomez-a         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -77,20 +77,17 @@ void	free_leaks(t_pl *stk, char **split)
 		ft_freematrix(split);
 }
 
-int	main_order(t_pl *stk)
+void	main_order(t_pl *stk)
 {
-	if (check_duplicates(stk))
-	{
-		if (check_order(stk) == 1)
-			return (0);
-		else if ((stk) && (stk->len_a < 4))
-			orderlow(stk);
-		else if ((stk) && ((stk->len_a < 6) && (stk->len_a > 4)))
-			orderfive(stk);
-		else
-			orderstackbychunks(stk);
-	}
-	return (1);
+	if (check_order(stk) == 1)
+		return ;
+	else if ((stk) && (stk->len_a < 4))
+		orderlow(stk);
+	else if ((stk) && ((stk->len_a < 6) && (stk->len_a > 4)))
+		orderfive(stk);
+	else
+		orderstackbychunks(stk);
+	return ;
 }
 
 int	main(int argc, char **argv)
@@ -115,11 +112,8 @@ int	main(int argc, char **argv)
 		if (!stk)
 			return (0);
 	}
-	if (!main_order(stk))
-	{
-		free_leaks(stk, split);
-		return (0);
-	}
+	if (check_duplicates(stk))
+		main_order(stk);
 	free_leaks(stk, split);
 	return (0);
 }
